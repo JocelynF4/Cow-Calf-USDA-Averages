@@ -20,12 +20,77 @@ choose a fence type and an amount in acres, miles, or feet to get a build cost.
 Behind the scenes, one data tab holds each dataset (`Cattle_by_State`,
 `Hay_by_State`, `CalfMargin_by_Region`, `Fencing_Rates`) and a `Counties` tab
 maps every U.S. county to its state and ERS region, so a single county choice
-drives every metric. All values are live `XLOOKUP`/`FILTER` formulas.
+drives every metric. All values are live `INDEX`/`MATCH` formulas.
 
 **Coverage:** auction cattle prices cover 25 states and hay covers 27; a county
 outside those shows `n/a` for that metric, while calf margin and fencing cover
 every county. For **acres**, fence length assumes a square paddock
 (perimeter = 4 × √(acres × 43,560 sq ft)); **feet** and **miles** are exact.
+
+## How each source is averaged
+
+Each of the four datasets is aggregated differently, because each is published
+at a different level of detail. Here is exactly what happens to each one.
+
+### 1. Auction cattle prices — head-count-weighted average, by state
+
+- **Source:** every 2025 weekly auction summary report USDA published for each
+  state (25 states report; West Virginia published none in 2025).
+- **What the raw data looks like:** each weekly report splits a class (e.g.
+  feeder steers) into many rows by weight break, frame, muscle grade, etc. —
+  and every row carries its own average price *and* a head count.
+- **The average:** for each state and category, all of that state's matching
+  rows across all 2025 weeks are combined into one **head-count-weighted mean**:
+
+  ```
+  average = Σ (row average price × row head count) ÷ Σ (row head count)
+  ```
+
+  So a week (or a weight class) that sold 800 head counts 800× as much as one
+  that sold 1 head. This reflects the price actual volume traded at, rather than
+  averaging small and large sales equally.
+- **"Overall Feeder"** uses the same formula, pooling feeder **Steers +
+  Heifers + Bulls** together.
+- **Units:** classes priced by weight are `$/cwt`; bred stock and pairs are
+  `$/head`. A few categories are reported both ways across different states —
+  those are kept as **two separate columns** and never blended together.
+- **Excluded from the average:** rows with no price or zero head count, and all
+  slaughter and dairy classes.
+
+### 2. Hay price — simple monthly average, by state
+
+- **Source:** USDA NASS hay price survey — **five monthly prices** (June through
+  October 2025) for each of **27 states**.
+- **The average:** for each state, the plain arithmetic mean of those five
+  monthly `$/ton` prices (each month weighted equally). This is **not**
+  volume-weighted — it is a straight average of the monthly survey figures.
+
+### 3. Calf margin — a regional value, not re-averaged
+
+- **Source:** the calf-margin workbook's 2025 margin (`$/cow`) for each of
+  USDA's **9 ERS farm resource regions**.
+- **What the tool does:** **no averaging happens in the combined tool.** Each
+  county is simply assigned its ERS region's single margin value, using the
+  county → region crosswalk. Every county in the same region shows the same
+  number. (How that regional margin was originally derived lives in the
+  standalone `Calf Margin by County.xlsx` tool.)
+
+### 4. Fencing — a per-foot rate × length, not averaged
+
+- **Source:** the fencing calculator's **cost per foot** for each of **5 fence
+  types**, taken as each type's total itemized build cost for a standard fence
+  segment divided by that segment's length.
+- **What the tool does:** **no averaging across geography** — fencing does not
+  vary by state or county. The estimate is simply:
+
+  ```
+  total cost = fence length (feet) × cost per foot for the chosen type
+  ```
+
+- **Length conversion:** feet are used as entered; **miles × 5,280**; **acres**
+  are converted to a fence length by assuming a **square paddock**
+  (perimeter = 4 × √(acres × 43,560 sq ft)) — an estimate, since an acreage
+  alone does not fix a field's shape. Feet and miles are exact.
 
 ## Standalone workbooks
 
