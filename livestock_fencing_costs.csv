@@ -1,0 +1,51 @@
+Fence Type,Item,Amount,Unit,Cost per Unit,Total Cost
+Woven Wire,Wood posts (8-inch diameter),4,each,35.00,140.00
+Woven Wire,Wood posts (4-inch diameter),57,each,14.00,798.00
+Woven Wire,Steel posts (6.5 feet),55,each,6.00,330.00
+Woven Wire,Staples and clips,10,pounds,3.40,34.00
+Woven Wire,Barbed wire (12-gauge),1320,feet,0.08,109.56
+Woven Wire,Woven wire (48 inches),1320,feet,0.63,831.60
+Woven Wire,Labor and equipment,42,hours,20.00,840.00
+Woven Wire,TOTAL,,,,3083.16
+Woven Wire,Total per foot,,,,2.34
+Barbed Wire,Wood posts (8-inch diameter),4,each,35.00,140.00
+Barbed Wire,Wood posts (4-inch diameter),57,each,14.00,798.00
+Barbed Wire,Steel posts (6.5 feet),55,each,6.00,330.00
+Barbed Wire,Staples and clips,10,pounds,3.40,34.00
+Barbed Wire,Barbed wire (12-gauge),6600,feet,0.08,547.80
+Barbed Wire,Labor and equipment,39,hours,20.00,780.00
+Barbed Wire,TOTAL,,,,2629.80
+Barbed Wire,Total per foot,,,,1.99
+High Tensile Non-Electric,Wood posts (8-inch diameter),6,each,35.00,210.00
+High Tensile Non-Electric,Wood posts (4-inch diameter),65,each,14.00,910.00
+High Tensile Non-Electric,Staples,10,pounds,3.40,34.00
+High Tensile Non-Electric,Springs,8,each,9.00,72.00
+High Tensile Non-Electric,Strainers,8,each,4.50,36.00
+High Tensile Non-Electric,High tensile wire,10560,feet,0.06,633.60
+High Tensile Non-Electric,Labor and equipment,32,hours,20.00,640.00
+High Tensile Non-Electric,TOTAL,,,,2535.60
+High Tensile Non-Electric,Total per foot,,,,1.92
+High Tensile Electrified,Wood posts (8-inch diameter),6,each,35.00,210.00
+High Tensile Electrified,Wood posts (4-inch diameter),4,each,14.00,56.00
+High Tensile Electrified,Steel posts (6.5 feet),52,each,6.00,312.00
+High Tensile Electrified,Insulators,285,each,0.22,62.70
+High Tensile Electrified,Springs,5,each,9.00,45.00
+High Tensile Electrified,Strainers,5,each,4.50,22.50
+High Tensile Electrified,High tensile wire,6600,feet,0.06,396.00
+High Tensile Electrified,Energizer,0.25,unit,200.00,50.00
+High Tensile Electrified,Cut-out switch,1,each,15.00,15.00
+High Tensile Electrified,Ground or lightning rods,4,each,16.00,64.00
+High Tensile Electrified,Labor and equipment,18,hours,20.00,360.00
+High Tensile Electrified,TOTAL,,,,1593.20
+High Tensile Electrified,Total per foot,,,,1.21
+Electrified Polywire (interior),Wood posts (4-inch diameter),2,each,14.00,28.00
+Electrified Polywire (interior),Fiberglass posts (3/8 in x 4 ft),33,each,2.00,66.00
+Electrified Polywire (interior),Insulators,2,each,0.22,0.44
+Electrified Polywire (interior),Post clips,42,each,0.48,20.16
+Electrified Polywire (interior),Polywire,1320,feet,0.033,43.56
+Electrified Polywire (interior),Energizer,0.25,unit,200.00,50.00
+Electrified Polywire (interior),Cut-out switch,1,each,15.00,15.00
+Electrified Polywire (interior),Ground or lightning rods,4,each,16.00,64.00
+Electrified Polywire (interior),Labor and equipment,2,hours,20.00,40.00
+Electrified Polywire (interior),TOTAL,,,,327.16
+Electrified Polywire (interior),Total per foot,,,,0.25
