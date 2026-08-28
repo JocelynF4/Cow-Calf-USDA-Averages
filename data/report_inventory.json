@@ -1,0 +1,1776 @@
+{
+  "combos": [
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 58873,
+      "priced_rows": 58873,
+      "total_head": 2902110,
+      "n_states": 25,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Steers",
+      "price_unit": "Per Cwt",
+      "rows": 56921,
+      "priced_rows": 56921,
+      "total_head": 3632620,
+      "n_states": 25,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Bulls",
+      "price_unit": "Per Cwt",
+      "rows": 33356,
+      "priced_rows": 33356,
+      "total_head": 544628,
+      "n_states": 25,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bred Cows",
+      "price_unit": "Per Unit",
+      "rows": 15039,
+      "priced_rows": 15039,
+      "total_head": 190503,
+      "n_states": 19,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Georgia",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Cows",
+      "price_unit": "Per Cwt",
+      "rows": 11434,
+      "priced_rows": 11434,
+      "total_head": 525797,
+      "n_states": 21,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Cow-Calf Pairs",
+      "price_unit": "Per Unit",
+      "rows": 9413,
+      "priced_rows": 9413,
+      "total_head": 52298,
+      "n_states": 20,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Bulls",
+      "price_unit": "Per Cwt",
+      "rows": 4270,
+      "priced_rows": 4270,
+      "total_head": 88629,
+      "n_states": 21,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bred Heifers",
+      "price_unit": "Per Unit",
+      "rows": 3062,
+      "priced_rows": 3062,
+      "total_head": 41753,
+      "n_states": 20,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Colorado",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Stock Cows",
+      "price_unit": "Per Cwt",
+      "rows": 2958,
+      "priced_rows": 2958,
+      "total_head": 48460,
+      "n_states": 18,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Dairy Calves",
+      "class": "Bulls",
+      "price_unit": "Per Cwt",
+      "rows": 2904,
+      "priced_rows": 2904,
+      "total_head": 35408,
+      "n_states": 2,
+      "states": [
+        "New York",
+        "Pennsylvania"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Dairy Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 2330,
+      "priced_rows": 2330,
+      "total_head": 10007,
+      "n_states": 18,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Dairy Steers",
+      "price_unit": "Per Cwt",
+      "rows": 2289,
+      "priced_rows": 2289,
+      "total_head": 25705,
+      "n_states": 20,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Georgia",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Virginia"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Steers",
+      "price_unit": "Per Cwt",
+      "rows": 2163,
+      "priced_rows": 2163,
+      "total_head": 85710,
+      "n_states": 11,
+      "states": [
+        "Arkansas",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Missouri",
+        "New York",
+        "Pennsylvania",
+        "South Dakota",
+        "Texas",
+        "Utah",
+        "Virginia"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 1543,
+      "priced_rows": 1543,
+      "total_head": 45852,
+      "n_states": 11,
+      "states": [
+        "Colorado",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Missouri",
+        "New York",
+        "Pennsylvania",
+        "South Dakota",
+        "Texas",
+        "Utah",
+        "Virginia"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Stock Cows",
+      "price_unit": "Per Unit",
+      "rows": 1508,
+      "priced_rows": 1508,
+      "total_head": 8626,
+      "n_states": 15,
+      "states": [
+        "Alabama",
+        "Arkansas",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Dairy Cows",
+      "price_unit": "Per Cwt",
+      "rows": 1493,
+      "priced_rows": 1493,
+      "total_head": 33947,
+      "n_states": 10,
+      "states": [
+        "Arkansas",
+        "Georgia",
+        "Illinois",
+        "Kentucky",
+        "Montana",
+        "New York",
+        "Oklahoma",
+        "Pennsylvania",
+        "Tennessee",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Dairy Calves",
+      "class": "Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 1413,
+      "priced_rows": 1413,
+      "total_head": 7959,
+      "n_states": 2,
+      "states": [
+        "New York",
+        "Pennsylvania"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bred Cows",
+      "price_unit": "Per Cwt",
+      "rows": 1272,
+      "priced_rows": 1272,
+      "total_head": 4357,
+      "n_states": 13,
+      "states": [
+        "Arkansas",
+        "Florida",
+        "Georgia",
+        "Illinois",
+        "Kansas",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "North Carolina",
+        "Oklahoma",
+        "South Carolina",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Kids",
+      "price_unit": "Per Unit",
+      "rows": 1241,
+      "priced_rows": 1241,
+      "total_head": 8934,
+      "n_states": 2,
+      "states": [
+        "North Carolina",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Bucks/Billies",
+      "price_unit": "Per Unit",
+      "rows": 1149,
+      "priced_rows": 1149,
+      "total_head": 3901,
+      "n_states": 2,
+      "states": [
+        "North Carolina",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Nannies/Does",
+      "price_unit": "Per Unit",
+      "rows": 1130,
+      "priced_rows": 1130,
+      "total_head": 3622,
+      "n_states": 2,
+      "states": [
+        "North Carolina",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bulls",
+      "price_unit": "Per Unit",
+      "rows": 826,
+      "priced_rows": 826,
+      "total_head": 2599,
+      "n_states": 13,
+      "states": [
+        "Arkansas",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "New York",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Breeds",
+      "price_unit": "Per Unit",
+      "rows": 755,
+      "priced_rows": 755,
+      "total_head": 4687,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Replacement Goats",
+      "class": "Nannies/Does",
+      "price_unit": "Per Unit",
+      "rows": 664,
+      "priced_rows": 664,
+      "total_head": 1615,
+      "n_states": 2,
+      "states": [
+        "Montana",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Beef/Dairy Steers",
+      "price_unit": "Per Cwt",
+      "rows": 633,
+      "priced_rows": 633,
+      "total_head": 3547,
+      "n_states": 15,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Dairy Steers",
+      "price_unit": "Per Cwt",
+      "rows": 592,
+      "priced_rows": 592,
+      "total_head": 5486,
+      "n_states": 8,
+      "states": [
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Missouri",
+        "New York",
+        "Pennsylvania",
+        "South Dakota",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Heifer Pairs",
+      "price_unit": "Per Unit",
+      "rows": 560,
+      "priced_rows": 560,
+      "total_head": 3703,
+      "n_states": 16,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Georgia",
+        "Illinois",
+        "Kansas",
+        "Kentucky",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Oklahoma",
+        "South Carolina",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Feeder Pigs",
+      "class": "Pigs",
+      "price_unit": "Per Unit",
+      "rows": 560,
+      "priced_rows": 560,
+      "total_head": 2677,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Beef/Dairy Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 492,
+      "priced_rows": 492,
+      "total_head": 2690,
+      "n_states": 17,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Illinois",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Montana",
+        "Nebraska",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Oklahoma",
+        "Pennsylvania",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Beef/Dairy Steers",
+      "price_unit": "Per Cwt",
+      "rows": 486,
+      "priced_rows": 486,
+      "total_head": 4576,
+      "n_states": 7,
+      "states": [
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "New York",
+        "Pennsylvania",
+        "South Dakota",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Heifers",
+      "price_unit": "Per Unit",
+      "rows": 453,
+      "priced_rows": 453,
+      "total_head": 6220,
+      "n_states": 15,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Iowa",
+        "Kansas",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "North Dakota",
+        "Oklahoma",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Wethers",
+      "price_unit": "Per Unit",
+      "rows": 372,
+      "priced_rows": 372,
+      "total_head": 790,
+      "n_states": 2,
+      "states": [
+        "North Carolina",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Slaughter Hogs",
+      "class": "Barrows & Gilts",
+      "price_unit": "Per Cwt",
+      "rows": 351,
+      "priced_rows": 351,
+      "total_head": 3884,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Dairy Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 349,
+      "priced_rows": 349,
+      "total_head": 1768,
+      "n_states": 6,
+      "states": [
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "New York",
+        "Pennsylvania",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Slaughter Hogs",
+      "class": "Sows",
+      "price_unit": "Per Cwt",
+      "rows": 349,
+      "priced_rows": 349,
+      "total_head": 1746,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Beef/Dairy Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 304,
+      "priced_rows": 304,
+      "total_head": 2429,
+      "n_states": 6,
+      "states": [
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "New York",
+        "Pennsylvania",
+        "South Dakota"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Kids",
+      "price_unit": "Per Cwt",
+      "rows": 285,
+      "priced_rows": 285,
+      "total_head": 5962,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bulls",
+      "price_unit": "Per Cwt",
+      "rows": 244,
+      "priced_rows": 244,
+      "total_head": 447,
+      "n_states": 9,
+      "states": [
+        "Arkansas",
+        "Kentucky",
+        "Mississippi",
+        "Montana",
+        "New York",
+        "Oklahoma",
+        "South Carolina",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Wether Kids",
+      "price_unit": "Per Unit",
+      "rows": 232,
+      "priced_rows": 232,
+      "total_head": 525,
+      "n_states": 2,
+      "states": [
+        "North Carolina",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Slaughter Hogs",
+      "class": "Boars",
+      "price_unit": "Per Cwt",
+      "rows": 203,
+      "priced_rows": 203,
+      "total_head": 343,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Ewes",
+      "price_unit": "Per Cwt",
+      "rows": 202,
+      "priced_rows": 202,
+      "total_head": 10005,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Feeder Sheep/Lambs",
+      "class": "Lambs",
+      "price_unit": "Per Cwt",
+      "rows": 200,
+      "priced_rows": 200,
+      "total_head": 21235,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Steers",
+      "price_unit": "Per Unit",
+      "rows": 195,
+      "priced_rows": 195,
+      "total_head": 881,
+      "n_states": 10,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Iowa",
+        "Kansas",
+        "Montana",
+        "Nebraska",
+        "Oklahoma",
+        "Texas",
+        "Utah",
+        "Wyoming"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Replacement Goats",
+      "class": "Bucks/Billies",
+      "price_unit": "Per Unit",
+      "rows": 195,
+      "priced_rows": 195,
+      "total_head": 762,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Dairy Bulls",
+      "price_unit": "Per Cwt",
+      "rows": 187,
+      "priced_rows": 187,
+      "total_head": 778,
+      "n_states": 11,
+      "states": [
+        "Arkansas",
+        "Illinois",
+        "Iowa",
+        "Kentucky",
+        "Mississippi",
+        "Montana",
+        "New York",
+        "Oklahoma",
+        "Pennsylvania",
+        "Tennessee",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Nannies/Does",
+      "price_unit": "Per Cwt",
+      "rows": 176,
+      "priced_rows": 176,
+      "total_head": 2054,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Ewes",
+      "price_unit": "Per Unit",
+      "rows": 162,
+      "priced_rows": 162,
+      "total_head": 1204,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Wooled & Shorn",
+      "price_unit": "Per Cwt",
+      "rows": 148,
+      "priced_rows": 148,
+      "total_head": 7179,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Feeder Goats",
+      "class": "Kids",
+      "price_unit": "Per Cwt",
+      "rows": 138,
+      "priced_rows": 138,
+      "total_head": 3050,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Bulls",
+      "price_unit": "Per Unit",
+      "rows": 136,
+      "priced_rows": 136,
+      "total_head": 481,
+      "n_states": 7,
+      "states": [
+        "Colorado",
+        "Kansas",
+        "Montana",
+        "Nebraska",
+        "Oklahoma",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Ewes",
+      "price_unit": "Per Unit",
+      "rows": 135,
+      "priced_rows": 135,
+      "total_head": 1056,
+      "n_states": 2,
+      "states": [
+        "Montana",
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Bucks/Billies",
+      "price_unit": "Per Cwt",
+      "rows": 127,
+      "priced_rows": 127,
+      "total_head": 334,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Bucks",
+      "price_unit": "Per Unit",
+      "rows": 115,
+      "priced_rows": 115,
+      "total_head": 359,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Replacement Goats",
+      "class": "Families",
+      "price_unit": "Per Unit",
+      "rows": 113,
+      "priced_rows": 113,
+      "total_head": 291,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Bucks",
+      "price_unit": "Per Cwt",
+      "rows": 111,
+      "priced_rows": 111,
+      "total_head": 647,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Bred Heifers",
+      "price_unit": "Per Cwt",
+      "rows": 105,
+      "priced_rows": 105,
+      "total_head": 156,
+      "n_states": 9,
+      "states": [
+        "Arkansas",
+        "Florida",
+        "Georgia",
+        "Kansas",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "South Carolina",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Breeds",
+      "price_unit": "Per Cwt",
+      "rows": 99,
+      "priced_rows": 99,
+      "total_head": 3905,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Bucks",
+      "price_unit": "Per Unit",
+      "rows": 95,
+      "priced_rows": 95,
+      "total_head": 227,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Slaughter Goats",
+      "class": "Wethers",
+      "price_unit": "Per Cwt",
+      "rows": 79,
+      "priced_rows": 79,
+      "total_head": 323,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Wooled",
+      "price_unit": "Per Unit",
+      "rows": 71,
+      "priced_rows": 71,
+      "total_head": 229,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Cows",
+      "price_unit": "Per Cwt",
+      "rows": 68,
+      "priced_rows": 68,
+      "total_head": 199,
+      "n_states": 6,
+      "states": [
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Oklahoma",
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Ewes",
+      "price_unit": "Per Cwt",
+      "rows": 61,
+      "priced_rows": 61,
+      "total_head": 811,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Feeder Sheep/Lambs",
+      "class": "Hair Lambs",
+      "price_unit": "Per Cwt",
+      "rows": 37,
+      "priced_rows": 37,
+      "total_head": 812,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Slaughter Cattle",
+      "class": "Bullocks",
+      "price_unit": "Per Cwt",
+      "rows": 32,
+      "priced_rows": 32,
+      "total_head": 40,
+      "n_states": 1,
+      "states": [
+        "Illinois"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Shorn",
+      "price_unit": "Per Unit",
+      "rows": 32,
+      "priced_rows": 32,
+      "total_head": 67,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Hair Bucks",
+      "price_unit": "Per Cwt",
+      "rows": 31,
+      "priced_rows": 31,
+      "total_head": 78,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Replacement Goats",
+      "class": "Nannies/Does",
+      "price_unit": "Per Cwt",
+      "rows": 26,
+      "priced_rows": 26,
+      "total_head": 114,
+      "n_states": 2,
+      "states": [
+        "Montana",
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Dairy Heifers",
+      "price_unit": "Per Unit",
+      "rows": 22,
+      "priced_rows": 22,
+      "total_head": 108,
+      "n_states": 3,
+      "states": [
+        "Arkansas",
+        "Colorado",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Dairy Cattle",
+      "class": "Springer Heifers",
+      "price_unit": "Per Unit",
+      "rows": 22,
+      "priced_rows": 22,
+      "total_head": 218,
+      "n_states": 2,
+      "states": [
+        "Colorado",
+        "New York"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Ewes",
+      "price_unit": "Per Cwt",
+      "rows": 20,
+      "priced_rows": 20,
+      "total_head": 628,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Ewes",
+      "price_unit": "Per Unit",
+      "rows": 18,
+      "priced_rows": 18,
+      "total_head": 853,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Slaughter Sheep/Lambs",
+      "class": "Wooled & Shorn",
+      "price_unit": "Per Unit",
+      "rows": 13,
+      "priced_rows": 13,
+      "total_head": 19,
+      "n_states": 1,
+      "states": [
+        "North Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Slaughter Hogs",
+      "class": "Barrows & Gilts",
+      "price_unit": "Per Unit",
+      "rows": 11,
+      "priced_rows": 11,
+      "total_head": 38,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Goats",
+      "commodity": "Replacement Goats",
+      "class": "Bucks/Billies",
+      "price_unit": "Per Cwt",
+      "rows": 7,
+      "priced_rows": 7,
+      "total_head": 7,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Bucks",
+      "price_unit": "Per Unit",
+      "rows": 6,
+      "priced_rows": 6,
+      "total_head": 98,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Cattle",
+      "class": "Cow-Calf Pairs",
+      "price_unit": "Per Cwt",
+      "rows": 5,
+      "priced_rows": 5,
+      "total_head": 6,
+      "n_states": 3,
+      "states": [
+        "Mississippi",
+        "North Carolina",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Feeder Sheep/Lambs",
+      "class": "Sheep",
+      "price_unit": "Per Cwt",
+      "rows": 5,
+      "priced_rows": 5,
+      "total_head": 26,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Beef/Dairy Heifers",
+      "price_unit": "Per Unit",
+      "rows": 5,
+      "priced_rows": 5,
+      "total_head": 23,
+      "n_states": 2,
+      "states": [
+        "Montana",
+        "Texas"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Slaughter Hogs",
+      "class": "Boars",
+      "price_unit": "Per Unit",
+      "rows": 5,
+      "priced_rows": 5,
+      "total_head": 10,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Hair Ewes",
+      "price_unit": "Per Cwt",
+      "rows": 4,
+      "priced_rows": 4,
+      "total_head": 100,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Beef/Dairy Steers",
+      "price_unit": "Per Unit",
+      "rows": 4,
+      "priced_rows": 4,
+      "total_head": 13,
+      "n_states": 2,
+      "states": [
+        "Montana",
+        "Texas"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Feeder Cattle",
+      "class": "Dairy Steers",
+      "price_unit": "Per Unit",
+      "rows": 4,
+      "priced_rows": 4,
+      "total_head": 16,
+      "n_states": 2,
+      "states": [
+        "Texas",
+        "Utah"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Bucks",
+      "price_unit": "Per Cwt",
+      "rows": 3,
+      "priced_rows": 3,
+      "total_head": 3,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Dairy Cattle",
+      "class": "Fresh/Milking Cows",
+      "price_unit": "Per Unit",
+      "rows": 2,
+      "priced_rows": 2,
+      "total_head": 2,
+      "n_states": 1,
+      "states": [
+        "New York"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Sheep",
+      "commodity": "Replacement Sheep/Lambs",
+      "class": "Hair Bucks",
+      "price_unit": "Per Cwt",
+      "rows": 1,
+      "priced_rows": 1,
+      "total_head": 1,
+      "n_states": 1,
+      "states": [
+        "Montana"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Dairy Cattle",
+      "class": "Bred Heifers",
+      "price_unit": "Per Unit",
+      "rows": 1,
+      "priced_rows": 1,
+      "total_head": 2,
+      "n_states": 1,
+      "states": [
+        "New York"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Cattle",
+      "commodity": "Replacement Dairy Cattle",
+      "class": "Bred Cows",
+      "price_unit": "Per Unit",
+      "rows": 1,
+      "priced_rows": 1,
+      "total_head": 1,
+      "n_states": 1,
+      "states": [
+        "New York"
+      ]
+    },
+    {
+      "group": "Livestock",
+      "category": "Swine",
+      "commodity": "Feeder Pigs",
+      "class": "Pigs",
+      "price_unit": "Per Cwt",
+      "rows": 1,
+      "priced_rows": 1,
+      "total_head": 1,
+      "n_states": 1,
+      "states": [
+        "South Carolina"
+      ]
+    }
+  ],
+  "fetch": {
+    "Alabama": [
+      "200 10758863",
+      7408
+    ],
+    "Arkansas": [
+      "200 17460579",
+      12221
+    ],
+    "Colorado": [
+      "200 11857216",
+      7269
+    ],
+    "Florida": [
+      "200 4978724",
+      3706
+    ],
+    "Georgia": [
+      "200 10486458",
+      7649
+    ],
+    "Illinois": [
+      "200 5523550",
+      4721
+    ],
+    "Iowa": [
+      "200 9421054",
+      5569
+    ],
+    "Kansas": [
+      "200 13104677",
+      6620
+    ],
+    "Kentucky": [
+      "200 33621601",
+      20764
+    ],
+    "Mississippi": [
+      "200 17422745",
+      13234
+    ],
+    "Missouri": [
+      "200 63397347",
+      17278
+    ],
+    "Montana": [
+      "200 33292772",
+      9036
+    ],
+    "Nebraska": [
+      "200 8853117",
+      4465
+    ],
+    "New York": [
+      "200 6061955",
+      5247
+    ],
+    "North Carolina": [
+      "200 22405451",
+      14684
+    ],
+    "North Dakota": [
+      "200 2213175",
+      1222
+    ],
+    "Oklahoma": [
+      "200 31022952",
+      18334
+    ],
+    "Pennsylvania": [
+      "200 6778320",
+      5611
+    ],
+    "South Carolina": [
+      "200 18818454",
+      14354
+    ],
+    "South Dakota": [
+      "200 9640852",
+      4646
+    ],
+    "Tennessee": [
+      "200 25995367",
+      18121
+    ],
+    "Texas": [
+      "200 13403528",
+      9502
+    ],
+    "Utah": [
+      "200 8535547",
+      5997
+    ],
+    "Virginia": [
+      "200 12515882",
+      8271
+    ],
+    "West Virginia": [
+      "200 80",
+      0
+    ],
+    "Wyoming": [
+      "200 3111959",
+      1778
+    ]
+  }
+}

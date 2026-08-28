@@ -1,0 +1,259 @@
+state,category,unit,avg_price,total_head,n_obs,n_weeks
+Alabama,Overall Feeder,$/cwt,350.68,183368,5646,48
+Alabama,Feeder Steers,$/cwt,364.58,47800,1856,48
+Alabama,Feeder Heifers,$/cwt,334.42,78974,2022,48
+Alabama,Feeder Bulls,$/cwt,361.63,56594,1768,48
+Alabama,Stock Cows ($/head),$/head,1504.21,2062,110,48
+Alabama,Bred Cows ($/head),$/head,2231.6,10684,622,48
+Alabama,Bred Heifers ($/head),$/head,3255.27,451,49,24
+Alabama,Cow-Calf Pairs ($/head),$/head,2856.7,5480,405,48
+Arkansas,Overall Feeder,$/cwt,356.53,149907,9124,49
+Arkansas,Feeder Steers,$/cwt,373.79,60147,3221,49
+Arkansas,Feeder Heifers,$/cwt,339.17,61773,3524,49
+Arkansas,Feeder Bulls,$/cwt,357.74,27987,2379,49
+Arkansas,Stock Cows ($/cwt),$/cwt,181.24,1128,188,48
+Arkansas,Stock Cows ($/head),$/head,2072.95,457,65,36
+Arkansas,Bred Cows ($/head),$/head,2357.32,4174,728,49
+Arkansas,Bred Cows ($/cwt),$/cwt,158.76,1026,342,49
+Arkansas,Bred Heifers ($/head),$/head,2454.93,740,247,48
+Arkansas,Bred Heifers ($/cwt),$/cwt,276.21,19,16,11
+Arkansas,Cow-Calf Pairs ($/head),$/head,2913.87,1967,580,49
+Arkansas,Heifer Pairs ($/head),$/head,2769.54,77,54,30
+Arkansas,Replacement Bulls ($/head),$/head,3158.51,111,55,30
+Arkansas,Replacement Bulls ($/cwt),$/cwt,328.37,23,20,18
+Colorado,Overall Feeder,$/cwt,354.09,147642,3728,39
+Colorado,Feeder Steers,$/cwt,369.13,80973,1689,33
+Colorado,Feeder Heifers,$/cwt,335.6,65030,1744,36
+Colorado,Feeder Bulls,$/cwt,344.66,1639,295,38
+Colorado,Stock Cows ($/cwt),$/cwt,192.92,2154,86,24
+Colorado,Bred Cows ($/head),$/head,2415.86,6074,452,24
+Colorado,Bred Heifers ($/head),$/head,2715.72,934,91,22
+Colorado,Cow-Calf Pairs ($/head),$/head,3230.97,1141,163,24
+Colorado,Heifer Pairs ($/head),$/head,3659.04,259,21,10
+Florida,Overall Feeder,$/cwt,406.9,102967,3076,48
+Florida,Feeder Steers,$/cwt,430.38,43237,1043,48
+Florida,Feeder Heifers,$/cwt,376.73,45449,1106,48
+Florida,Feeder Bulls,$/cwt,431.79,14281,927,48
+Florida,Stock Cows ($/cwt),$/cwt,196.97,39,2,1
+Florida,Bred Cows ($/cwt),$/cwt,195.03,1033,94,45
+Florida,Bred Heifers ($/cwt),$/cwt,381.42,10,1,1
+Florida,Cow-Calf Pairs ($/head),$/head,2633.55,170,23,22
+Georgia,Overall Feeder,$/cwt,350.3,191463,5486,48
+Georgia,Feeder Steers,$/cwt,368.79,46536,1802,48
+Georgia,Feeder Heifers,$/cwt,334.11,81681,1874,48
+Georgia,Feeder Bulls,$/cwt,357.62,63246,1810,48
+Georgia,Stock Cows ($/cwt),$/cwt,249.0,11,1,1
+Georgia,Bred Cows ($/head),$/head,2077.03,10140,565,48
+Georgia,Bred Cows ($/cwt),$/cwt,179.22,878,311,47
+Georgia,Bred Heifers ($/head),$/head,2430.66,3,2,1
+Georgia,Bred Heifers ($/cwt),$/cwt,227.3,17,10,4
+Georgia,Cow-Calf Pairs ($/head),$/head,2645.69,6105,633,48
+Georgia,Heifer Pairs ($/head),$/head,3700.0,4,2,2
+Illinois,Overall Feeder,$/cwt,333.87,29319,2389,27
+Illinois,Feeder Steers,$/cwt,340.73,17947,1160,27
+Illinois,Feeder Heifers,$/cwt,323.65,10849,1026,27
+Illinois,Feeder Bulls,$/cwt,310.58,523,203,23
+Illinois,Stock Cows ($/cwt),$/cwt,225.72,3,1,1
+Illinois,Stock Cows ($/head),$/head,2410.07,41,10,5
+Illinois,Bred Cows ($/head),$/head,2683.72,982,141,10
+Illinois,Bred Cows ($/cwt),$/cwt,143.59,9,6,2
+Illinois,Bred Heifers ($/head),$/head,3485.72,517,55,10
+Illinois,Cow-Calf Pairs ($/head),$/head,3593.43,396,88,9
+Illinois,Heifer Pairs ($/head),$/head,3973.06,138,18,6
+Illinois,Replacement Bulls ($/head),$/head,4118.07,145,26,9
+Iowa,Overall Feeder,$/cwt,338.56,353172,3579,51
+Iowa,Feeder Steers,$/cwt,346.58,206959,1739,51
+Iowa,Feeder Heifers,$/cwt,326.93,144722,1627,51
+Iowa,Feeder Bulls,$/cwt,353.25,1491,213,48
+Iowa,Bred Heifers ($/head),$/head,3222.5,292,2,2
+Kansas,Overall Feeder,$/cwt,327.71,308561,4712,49
+Kansas,Feeder Steers,$/cwt,334.15,183718,2361,49
+Kansas,Feeder Heifers,$/cwt,317.55,122365,2016,49
+Kansas,Feeder Bulls,$/cwt,351.9,2478,335,49
+Kansas,Stock Cows ($/cwt),$/cwt,214.18,2079,145,47
+Kansas,Stock Cows ($/head),$/head,2460.65,1052,16,9
+Kansas,Bred Cows ($/head),$/head,3162.32,13797,683,49
+Kansas,Bred Cows ($/cwt),$/cwt,174.13,40,7,5
+Kansas,Bred Heifers ($/head),$/head,3530.59,2857,118,31
+Kansas,Bred Heifers ($/cwt),$/cwt,278.0,7,1,1
+Kansas,Cow-Calf Pairs ($/head),$/head,3715.95,2182,307,44
+Kansas,Heifer Pairs ($/head),$/head,4125.51,515,40,18
+Kansas,Replacement Bulls ($/head),$/head,4348.17,47,22,7
+Kentucky,Overall Feeder,$/cwt,331.32,590161,13551,52
+Kentucky,Feeder Steers,$/cwt,337.27,247204,4512,51
+Kentucky,Feeder Heifers,$/cwt,320.69,246107,4957,52
+Kentucky,Feeder Bulls,$/cwt,343.14,96850,4082,52
+Kentucky,Stock Cows ($/cwt),$/cwt,179.7,1758,162,51
+Kentucky,Stock Cows ($/head),$/head,1756.5,848,220,49
+Kentucky,Bred Cows ($/head),$/head,2230.31,15837,1745,51
+Kentucky,Bred Heifers ($/head),$/head,2203.39,2369,493,50
+Kentucky,Cow-Calf Pairs ($/head),$/head,2975.31,5127,1145,50
+Kentucky,Heifer Pairs ($/head),$/head,2780.53,138,91,39
+Kentucky,Replacement Bulls ($/head),$/head,2728.77,661,121,50
+Kentucky,Replacement Bulls ($/cwt),$/cwt,217.94,22,18,14
+Mississippi,Overall Feeder,$/cwt,350.92,142548,8188,48
+Mississippi,Feeder Steers,$/cwt,364.17,58981,2982,48
+Mississippi,Feeder Heifers,$/cwt,333.49,58344,3055,48
+Mississippi,Feeder Bulls,$/cwt,360.26,25223,2151,48
+Mississippi,Feeder Cows,$/cwt,345.0,1,1,1
+Mississippi,Stock Cows ($/cwt),$/cwt,165.16,1645,268,48
+Mississippi,Stock Cows ($/head),$/head,1944.72,2113,338,47
+Mississippi,Bred Cows ($/head),$/head,2380.12,11421,1810,48
+Mississippi,Bred Cows ($/cwt),$/cwt,169.93,261,175,45
+Mississippi,Bred Heifers ($/head),$/head,2336.47,448,228,48
+Mississippi,Bred Heifers ($/cwt),$/cwt,230.42,6,6,6
+Mississippi,Cow-Calf Pairs ($/head),$/head,2934.83,5567,1151,48
+Mississippi,Heifer Pairs ($/head),$/head,3028.92,81,33,22
+Mississippi,Replacement Bulls ($/head),$/head,2913.98,194,87,44
+Mississippi,Replacement Bulls ($/cwt),$/cwt,196.77,44,30,24
+Missouri,Overall Feeder,$/cwt,346.9,1076587,11521,51
+Missouri,Feeder Steers,$/cwt,355.48,607726,5005,51
+Missouri,Feeder Heifers,$/cwt,334.59,433969,4699,51
+Missouri,Feeder Bulls,$/cwt,350.73,34892,1817,51
+Missouri,Feeder Cows,$/cwt,384.0,4,1,1
+Missouri,Stock Cows ($/cwt),$/cwt,197.04,7191,459,50
+Missouri,Stock Cows ($/head),$/head,2651.32,209,17,8
+Missouri,Bred Cows ($/head),$/head,2678.38,35162,1794,51
+Missouri,Bred Cows ($/cwt),$/cwt,164.63,23,5,5
+Missouri,Bred Heifers ($/head),$/head,3285.82,9016,567,51
+Missouri,Bred Heifers ($/cwt),$/cwt,187.75,2,2,1
+Missouri,Cow-Calf Pairs ($/head),$/head,3485.93,10156,1273,51
+Missouri,Heifer Pairs ($/head),$/head,4336.34,1076,81,33
+Missouri,Replacement Bulls ($/head),$/head,3460.56,511,144,48
+Montana,Overall Feeder,$/cwt,384.92,130171,4338,49
+Montana,Feeder Steers,$/cwt,406.64,65410,1719,49
+Montana,Feeder Heifers,$/cwt,364.49,60810,1845,49
+Montana,Feeder Bulls,$/cwt,339.85,3951,774,49
+Montana,Feeder Cows,$/cwt,480.0,8,1,1
+Montana,Stock Cows ($/cwt),$/cwt,227.4,15932,426,49
+Montana,Stock Cows ($/head),$/head,2496.28,65,5,3
+Montana,Bred Cows ($/head),$/head,3289.71,20961,595,43
+Montana,Bred Cows ($/cwt),$/cwt,189.58,439,51,17
+Montana,Bred Heifers ($/head),$/head,3852.67,7422,87,29
+Montana,Bred Heifers ($/cwt),$/cwt,259.61,7,5,4
+Montana,Cow-Calf Pairs ($/head),$/head,3638.85,1738,134,27
+Montana,Heifer Pairs ($/head),$/head,4204.5,590,23,10
+Montana,Replacement Bulls ($/head),$/head,3041.55,59,6,4
+Montana,Replacement Bulls ($/cwt),$/cwt,213.77,28,5,4
+Nebraska,Overall Feeder,$/cwt,358.83,721547,4087,52
+Nebraska,Feeder Steers,$/cwt,370.26,436037,2031,52
+Nebraska,Feeder Heifers,$/cwt,341.24,284231,1937,52
+Nebraska,Feeder Bulls,$/cwt,370.89,1279,119,39
+Nebraska,Bred Cows ($/head),$/head,3236.05,11623,197,30
+Nebraska,Bred Heifers ($/head),$/head,4041.35,7347,32,17
+Nebraska,Cow-Calf Pairs ($/head),$/head,3685.85,1580,75,17
+Nebraska,Heifer Pairs ($/head),$/head,4237.44,310,12,8
+New York,Overall Feeder,$/cwt,301.73,8778,1550,42
+New York,Feeder Steers,$/cwt,312.65,4055,591,32
+New York,Feeder Heifers,$/cwt,292.31,3456,562,36
+New York,Feeder Bulls,$/cwt,292.52,1267,397,41
+New York,Stock Cows ($/cwt),$/cwt,140.06,310,25,17
+New York,Stock Cows ($/head),$/head,1698.68,20,6,6
+New York,Bred Cows ($/head),$/head,2012.02,571,85,23
+New York,Bred Heifers ($/head),$/head,2085.64,92,44,19
+New York,Cow-Calf Pairs ($/head),$/head,2674.85,78,23,19
+New York,Replacement Bulls ($/head),$/head,2658.02,17,6,3
+New York,Replacement Bulls ($/cwt),$/cwt,177.4,100,24,21
+North Carolina,Overall Feeder,$/cwt,315.43,119175,8925,48
+North Carolina,Feeder Steers,$/cwt,340.67,25101,2278,48
+North Carolina,Feeder Heifers,$/cwt,301.01,51730,3403,48
+North Carolina,Feeder Bulls,$/cwt,318.1,42344,3244,48
+North Carolina,Stock Cows ($/cwt),$/cwt,184.35,116,64,22
+North Carolina,Stock Cows ($/head),$/head,1230.68,160,130,45
+North Carolina,Bred Cows ($/head),$/head,1908.59,2192,555,48
+North Carolina,Bred Cows ($/cwt),$/cwt,187.17,43,22,6
+North Carolina,Bred Heifers ($/head),$/head,1755.74,15,14,10
+North Carolina,Cow-Calf Pairs ($/head),$/head,2446.86,1215,475,48
+North Dakota,Overall Feeder,$/cwt,366.03,166857,1215,29
+North Dakota,Feeder Steers,$/cwt,378.84,99935,568,29
+North Dakota,Feeder Heifers,$/cwt,347.0,66260,593,29
+North Dakota,Feeder Bulls,$/cwt,337.21,662,54,19
+Oklahoma,Overall Feeder,$/cwt,339.4,976434,13005,50
+Oklahoma,Feeder Steers,$/cwt,341.45,538860,5147,50
+Oklahoma,Feeder Heifers,$/cwt,331.21,386880,4869,50
+Oklahoma,Feeder Bulls,$/cwt,380.09,50694,2989,50
+Oklahoma,Feeder Cows,$/cwt,236.0,12,1,1
+Oklahoma,Stock Cows ($/cwt),$/cwt,185.33,5881,458,50
+Oklahoma,Stock Cows ($/head),$/head,2303.35,145,10,6
+Oklahoma,Bred Cows ($/head),$/head,2441.81,23576,1724,50
+Oklahoma,Bred Cows ($/cwt),$/cwt,166.92,13,6,2
+Oklahoma,Bred Heifers ($/head),$/head,2917.06,2258,371,48
+Oklahoma,Cow-Calf Pairs ($/head),$/head,3096.97,2865,777,50
+Oklahoma,Heifer Pairs ($/head),$/head,3422.93,282,95,37
+Oklahoma,Replacement Bulls ($/head),$/head,3703.56,276,91,42
+Oklahoma,Replacement Bulls ($/cwt),$/cwt,189.44,32,23,12
+Pennsylvania,Overall Feeder,$/cwt,311.1,5354,796,18
+Pennsylvania,Feeder Steers,$/cwt,326.4,2171,320,18
+Pennsylvania,Feeder Heifers,$/cwt,294.33,2303,289,18
+Pennsylvania,Feeder Bulls,$/cwt,317.22,880,187,18
+Pennsylvania,Stock Cows ($/cwt),$/cwt,158.93,18,3,2
+South Carolina,Overall Feeder,$/cwt,337.12,53606,6482,48
+South Carolina,Feeder Steers,$/cwt,350.43,11869,1926,48
+South Carolina,Feeder Heifers,$/cwt,317.54,22695,2391,48
+South Carolina,Feeder Bulls,$/cwt,352.15,19042,2165,48
+South Carolina,Stock Cows ($/cwt),$/cwt,166.6,790,308,48
+South Carolina,Stock Cows ($/head),$/head,1492.99,984,411,48
+South Carolina,Bred Cows ($/head),$/head,1853.1,1765,750,48
+South Carolina,Bred Cows ($/cwt),$/cwt,154.0,184,156,44
+South Carolina,Bred Heifers ($/head),$/head,2245.35,245,105,41
+South Carolina,Bred Heifers ($/cwt),$/cwt,193.55,58,49,27
+South Carolina,Cow-Calf Pairs ($/head),$/head,2384.12,922,517,48
+South Carolina,Heifer Pairs ($/head),$/head,2233.77,29,20,15
+South Carolina,Replacement Bulls ($/head),$/head,2228.18,267,123,48
+South Carolina,Replacement Bulls ($/cwt),$/cwt,181.03,195,121,46
+South Dakota,Overall Feeder,$/cwt,349.67,843049,3923,51
+South Dakota,Feeder Steers,$/cwt,358.87,500826,1926,51
+South Dakota,Feeder Heifers,$/cwt,336.01,340484,1873,51
+South Dakota,Feeder Bulls,$/cwt,376.29,1739,124,38
+Tennessee,Overall Feeder,$/cwt,333.41,252530,13690,49
+Tennessee,Feeder Steers,$/cwt,345.93,88397,4610,49
+Tennessee,Feeder Heifers,$/cwt,321.28,107501,5139,49
+Tennessee,Feeder Bulls,$/cwt,336.87,56632,3941,49
+Tennessee,Stock Cows ($/head),$/head,1808.9,262,119,41
+Tennessee,Bred Cows ($/head),$/head,2264.22,6730,1774,49
+Tennessee,Bred Heifers ($/head),$/head,2141.59,647,381,49
+Tennessee,Cow-Calf Pairs ($/head),$/head,2959.71,2135,1015,48
+Tennessee,Heifer Pairs ($/head),$/head,3007.05,69,54,34
+Tennessee,Replacement Bulls ($/head),$/head,2851.66,116,89,42
+Texas,Overall Feeder,$/cwt,328.36,174646,6692,48
+Texas,Feeder Steers,$/cwt,339.31,95117,2878,48
+Texas,Feeder Heifers,$/cwt,314.61,73487,2902,48
+Texas,Feeder Bulls,$/cwt,323.22,6042,912,48
+Texas,Feeder Cows,$/cwt,90.04,170,63,11
+Texas,Stock Cows ($/cwt),$/cwt,181.11,1175,133,43
+Texas,Stock Cows ($/head),$/head,2081.25,204,49,29
+Texas,Bred Cows ($/head),$/head,2474.71,5164,620,48
+Texas,Bred Cows ($/cwt),$/cwt,157.99,182,31,15
+Texas,Bred Heifers ($/head),$/head,3144.27,760,107,42
+Texas,Cow-Calf Pairs ($/head),$/head,3308.55,1665,357,48
+Texas,Heifer Pairs ($/head),$/head,2750.0,2,2,2
+Texas,Replacement Bulls ($/head),$/head,3881.29,194,55,37
+Texas,Replacement Bulls ($/cwt),$/cwt,209.5,2,2,2
+Utah,Overall Feeder,$/cwt,378.97,52270,4294,48
+Utah,Feeder Steers,$/cwt,397.6,27945,1923,48
+Utah,Feeder Heifers,$/cwt,357.96,22966,1840,48
+Utah,Feeder Bulls,$/cwt,350.88,1359,531,46
+Utah,Feeder Cows,$/cwt,334.0,4,1,1
+Utah,Stock Cows ($/cwt),$/cwt,218.54,711,95,31
+Utah,Stock Cows ($/head),$/head,3281.25,4,2,2
+Utah,Bred Cows ($/head),$/head,2451.65,528,98,33
+Utah,Bred Cows ($/cwt),$/cwt,185.22,226,66,28
+Utah,Bred Heifers ($/head),$/head,2710.35,93,39,21
+Utah,Bred Heifers ($/cwt),$/cwt,236.11,30,15,11
+Utah,Cow-Calf Pairs ($/head),$/head,2960.23,1135,250,41
+Utah,Heifer Pairs ($/head),$/head,2639.0,14,10,7
+Utah,Replacement Bulls ($/head),$/head,3000.0,1,1,1
+Utah,Replacement Bulls ($/cwt),$/cwt,210.0,1,1,1
+Virginia,Overall Feeder,$/cwt,336.49,153902,8062,51
+Virginia,Feeder Steers,$/cwt,350.67,54892,3114,51
+Virginia,Feeder Heifers,$/cwt,316.98,65760,3020,51
+Virginia,Feeder Bulls,$/cwt,351.68,33250,1928,51
+Wyoming,Overall Feeder,$/cwt,397.04,145344,1091,43
+Wyoming,Feeder Steers,$/cwt,414.41,80777,520,42
+Wyoming,Feeder Heifers,$/cwt,375.45,64284,560,43
+Wyoming,Feeder Bulls,$/cwt,343.37,283,11,6
+Wyoming,Stock Cows ($/cwt),$/cwt,226.47,7519,134,39
+Wyoming,Bred Cows ($/head),$/head,3103.01,9122,101,26
+Wyoming,Bred Heifers ($/head),$/head,3831.66,5247,30,23
+Wyoming,Cow-Calf Pairs ($/head),$/head,3444.13,674,22,9
+Wyoming,Heifer Pairs ($/head),$/head,3840.79,119,4,3
