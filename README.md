@@ -29,11 +29,14 @@ every county. For **acres**, fence length assumes a square paddock
 
 ## Standalone workbooks
 
-Kept alongside the combined tool for reference:
+Kept alongside the combined tool for reference — each is the original single-topic
+lookup those numbers came from:
 
 - `USDA_Cattle_2025_State_Averages.xlsx` — the cattle averages on their own, with
   a state/category lookup and a per-number audit tab.
 - `Calf Margin by County.xlsx` — the county → ERS region → margin lookup.
+- `HayPriceLookup.xlsx` — hay price by state.
+- `Livestock Fencing Cost Calculator.xlsx` — fencing build cost by type and length.
 
 ## Rebuilding from source
 
