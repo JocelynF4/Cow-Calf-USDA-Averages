@@ -60,6 +60,17 @@ python scripts/0_discover_reports.py   # report IDs + category inventory
 python scripts/1_extract.py            # pull + filter weekly rows -> data/cattle_2025.csv.gz
 ```
 
+## Source data (original uploads)
+
+The raw inputs the tools were built from, kept for reference:
+
+- `Hay prices state June-Sept.csv` — USDA NASS hay price survey rows.
+- `livestock_fencing_costs.csv` — itemized fencing costs by fence type.
+- `uscounties.xlsx` — county reference (name, FIPS, state).
+- `ers_farm_resource_regions_county_crosswalk.xls` — county → USDA ERS region crosswalk.
+- `CowCalfCostReturn (1).xlsx` — USDA cow-calf cost-and-return survey.
+- `hay_prices.py` — script behind the hay lookup.
+
 ## Data files
 
 - `data/counties.csv` — county → state + FIPS + ERS region (3,144 counties).
