@@ -45,9 +45,29 @@ python scripts/3_build_xlsx.py         # workbook                        -> USDA
 Steps 2 and 3 run offline from the committed `data/` files; only steps 0 and 1
 call the API.
 
+## Combined rancher lookup
+
+`Rancher_Lookup_Combined.xlsx` unifies four datasets into one lookup tab: pick a
+state and county to see the auction cattle averages (by state), hay price (by
+state), and calf margin (by the county's ERS region), plus a fencing estimator
+(pick a fence type and an amount in acres/miles/feet). Counties resolve to their
+state and ERS region through the `Counties` backbone, so a single county choice
+drives every metric. Cattle covers 25 states and hay 27; counties outside those
+show `n/a` for that metric, while calf margin and fencing cover every county.
+For acres, fence length assumes a square paddock; feet and miles are exact.
+
+Rebuild it from the committed `data/` files (no API needed):
+
+```bash
+python scripts/4_build_combined.py   # -> Rancher_Lookup_Combined.xlsx
+```
+
 ## Data files
 
 - `data/cattle_2025.csv.gz` — filtered 2025 observation rows (the extract).
 - `data/averages_long.csv` — computed per-state per-category averages.
 - `data/report_inventory.json` — discovered state reports and the full list of
   category combinations found in the 2025 data.
+- `data/counties.csv` — county → state + FIPS + ERS region backbone (3,144 counties).
+- `data/combine_data.json` — hay price by state, fencing $/foot by type, and calf
+  margin by ERS region, used to build the combined workbook.
