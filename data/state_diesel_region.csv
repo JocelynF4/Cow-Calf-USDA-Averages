@@ -1,0 +1,57 @@
+state,padd,padd_name,price_series
+Connecticut,PADD 1A,New England,New England
+Maine,PADD 1A,New England,New England
+Massachusetts,PADD 1A,New England,New England
+New Hampshire,PADD 1A,New England,New England
+Rhode Island,PADD 1A,New England,New England
+Vermont,PADD 1A,New England,New England
+Delaware,PADD 1B,Central Atlantic,Central Atlantic
+District of Columbia,PADD 1B,Central Atlantic,Central Atlantic
+Maryland,PADD 1B,Central Atlantic,Central Atlantic
+New Jersey,PADD 1B,Central Atlantic,Central Atlantic
+New York,PADD 1B,Central Atlantic,Central Atlantic
+Pennsylvania,PADD 1B,Central Atlantic,Central Atlantic
+Florida,PADD 1C,Lower Atlantic,Lower Atlantic
+Georgia,PADD 1C,Lower Atlantic,Lower Atlantic
+North Carolina,PADD 1C,Lower Atlantic,Lower Atlantic
+South Carolina,PADD 1C,Lower Atlantic,Lower Atlantic
+Virginia,PADD 1C,Lower Atlantic,Lower Atlantic
+West Virginia,PADD 1C,Lower Atlantic,Lower Atlantic
+Illinois,PADD 2,Midwest,Midwest
+Indiana,PADD 2,Midwest,Midwest
+Iowa,PADD 2,Midwest,Midwest
+Kansas,PADD 2,Midwest,Midwest
+Kentucky,PADD 2,Midwest,Midwest
+Michigan,PADD 2,Midwest,Midwest
+Minnesota,PADD 2,Midwest,Midwest
+Missouri,PADD 2,Midwest,Midwest
+Nebraska,PADD 2,Midwest,Midwest
+North Dakota,PADD 2,Midwest,Midwest
+Ohio,PADD 2,Midwest,Midwest
+Oklahoma,PADD 2,Midwest,Midwest
+South Dakota,PADD 2,Midwest,Midwest
+Tennessee,PADD 2,Midwest,Midwest
+Wisconsin,PADD 2,Midwest,Midwest
+Alabama,PADD 3,Gulf Coast,Gulf Coast
+Arkansas,PADD 3,Gulf Coast,Gulf Coast
+Louisiana,PADD 3,Gulf Coast,Gulf Coast
+Mississippi,PADD 3,Gulf Coast,Gulf Coast
+New Mexico,PADD 3,Gulf Coast,Gulf Coast
+Texas,PADD 3,Gulf Coast,Gulf Coast
+Colorado,PADD 4,Rocky Mountain,Rocky Mountains
+Idaho,PADD 4,Rocky Mountain,Rocky Mountains
+Montana,PADD 4,Rocky Mountain,Rocky Mountains
+Utah,PADD 4,Rocky Mountain,Rocky Mountains
+Wyoming,PADD 4,Rocky Mountain,Rocky Mountains
+California,PADD 5,West Coast,California
+Alaska,PADD 5,West Coast,West Coast exc California
+Arizona,PADD 5,West Coast,West Coast exc California
+Hawaii,PADD 5,West Coast,West Coast exc California
+Nevada,PADD 5,West Coast,West Coast exc California
+Oregon,PADD 5,West Coast,West Coast exc California
+Washington,PADD 5,West Coast,West Coast exc California
+Puerto Rico,PADD 6,Caribbean territories,
+U.S. Virgin Islands,PADD 6,Caribbean territories,
+Guam,PADD 7,Pacific territories,
+American Samoa,PADD 7,Pacific territories,
+Northern Mariana Islands,PADD 7,Pacific territories,

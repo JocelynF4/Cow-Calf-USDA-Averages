@@ -8,6 +8,8 @@ from openpyxl.utils import get_column_letter
 from openpyxl.workbook.defined_name import DefinedName
 from openpyxl.worksheet.datavalidation import DataValidation
 
+import tractor_model as tm
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "Rancher_Lookup_Combined.xlsx")
 
@@ -138,6 +140,8 @@ for col in (1, 2):
 ci.column_dimensions["A"].width = 26
 ci.column_dimensions["B"].width = 18
 
+tractor_ref = tm.write_data_sheets(wb, states_to_include=county_states)
+
 wb.defined_names.add(DefinedName("StateList", attr_text=f"Lists!$A$2:$A${states_last}"))
 wb.defined_names.add(DefinedName("FenceTypes", attr_text=f"Fencing_Rates!$A$2:$A${fence_last}"))
 county_by_state = (
@@ -155,7 +159,8 @@ lk.sheet_view.showGridLines = False
 lk["B2"] = "Rancher County Lookup"
 lk["B2"].font = Font(bold=True, size=20, color=NAVY)
 lk["B3"] = ("Pick a state, then a county. Auction cattle prices and hay are by state; "
-            "calf margin is by the county's ERS region. Fencing is estimated separately below.")
+            "calf margin is by the county's ERS region. Fencing is estimated separately below, "
+            "and tractor cost per hour uses the state's regional diesel price.")
 lk["B3"].font = SUB
 lk.merge_cells("B3:F3")
 
@@ -269,6 +274,8 @@ lk[f"B{fsec+8}"].value = ("Note: for Acres, fence length assumes a square paddoc
 lk[f"B{fsec+8}"].font = Font(italic=True, size=9, color="808080")
 lk.merge_cells(f"B{fsec+8}:F{fsec+8}")
 
+tm.write_calculator(lk, fsec + 10, "$C$6", tractor_ref, title="  4 · TRACTOR COST PER HOUR")
+
 dv_state = DataValidation(type="list", formula1="StateList", allow_blank=True)
 dv_county = DataValidation(type="list", formula1="CountyByState", allow_blank=True)
 dv_fence = DataValidation(type="list", formula1="FenceTypes", allow_blank=True)
@@ -281,9 +288,9 @@ dv_fence.add(lk[f"C{fsec+1}"])
 dv_unit.add(lk[f"C{fsec+3}"])
 
 lk.column_dimensions["A"].width = 2
-lk.column_dimensions["B"].width = 30
+lk.column_dimensions["B"].width = 38
 lk.column_dimensions["C"].width = 20
-lk.column_dimensions["D"].width = 8
+lk.column_dimensions["D"].width = 10
 lk.column_dimensions["E"].width = 4
 lk.column_dimensions["F"].width = 20
 
