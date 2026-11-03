@@ -9,8 +9,8 @@ datasets:
 - **Hay price** — average `$/ton` by state.
 - **Calf margin** — `$/cow` by the county's USDA ERS farm resource region.
 - **Fencing estimate** — build cost by fence type and length (acres, miles, or feet).
-- **Tractor variable cost per hour** — fuel, lubrication and repairs (wear and tear)
-  per hour for a two-wheel-drive (2WD) tractor, using the state's regional diesel price.
+- **Tractor cost per hour** — fuel, lubrication, repairs and depreciation per hour for
+  a two-wheel-drive (2WD) tractor, using the state's regional diesel price.
 
 ## The combined tool: `Rancher_Lookup_Combined.xlsx`
 
@@ -18,8 +18,8 @@ Open the **Rancher Lookup** tab, pick a **state** and then a **county**, and the
 sheet fills in the auction cattle averages and hay price (by state) and the calf
 margin (by the county's ERS region). The **fencing estimator** is independent:
 choose a fence type and an amount in acres, miles, or feet to get a build cost.
-The **tractor variable cost per hour** section uses the chosen state's regional diesel
-price; fill in the tractor's horsepower, lubrication cost, list price and hours.
+The **tractor cost per hour** section uses the chosen state's regional diesel price;
+fill in the tractor's horsepower, lubrication cost, list price, hours and age.
 
 Behind the scenes, one data tab holds each dataset (`Cattle_by_State`,
 `Hay_by_State`, `CalfMargin_by_Region`, `Fencing_Rates`) and a `Counties` tab
@@ -96,7 +96,7 @@ at a different level of detail. Here is exactly what happens to each one.
   (perimeter = 4 × √(acres × 43,560 sq ft)) — an estimate, since an acreage
   alone does not fix a field's shape. Feet and miles are exact.
 
-### 5. Tractor variable cost per hour — regional diesel price + a standard repair model
+### 5. Tractor cost per hour — regional diesel price + a standard machinery-cost model
 
 **Diesel price — simple weekly average, by fuel region**
 
@@ -132,33 +132,42 @@ at a different level of detail. Here is exactly what happens to each one.
   Enter your own price to override. Territories have no series and show `n/a`
   until a price is entered.
 
-**Variable cost per hour — 2WD tractors only**
+**Cost per hour — 2WD tractors, variable costs + depreciation**
 
-Only **variable costs** are measured: costs that rise with every hour the tractor
-runs. Ownership costs (depreciation, interest, taxes, insurance and housing) and
-operator labor are **not included**. The model covers **two-wheel-drive (2WD)
-tractors only**.
+The model covers **two-wheel-drive (2WD) tractors only**. It reports **variable
+costs** (costs that rise with every hour the tractor runs) and **depreciation**
+as separate subtotals. Interest, taxes, insurance, housing and operator labor
+are **not included**.
 
 ```
-fuel        = 0.044 gal per hp-hour × max PTO hp × diesel price
-lubrication = entered directly in $/hr (oil, filters, grease)
-repairs     = list price × RF1 × [((hours on + hours/yr)/1000)^RF2 − (hours on/1000)^RF2] ÷ hours/yr
-total       = fuel + lubrication + repairs
+fuel            = 0.044 gal per hp-hour × max PTO hp × diesel price
+lubrication     = entered directly in $/hr (oil, filters, grease)
+repairs         = list price × RF1 × [((hours on + hours/yr)/1000)^RF2 − (hours on/1000)^RF2] ÷ hours/yr
+remaining value = list price × (C1 − C2 × √age − C3 × √(hours/yr))²
+depreciation    = (value at start of year − value at end of year) ÷ hours/yr
+wear & tear     = repairs + depreciation
+total           = fuel + lubrication + repairs + depreciation
 ```
 
-- **Fuel use** (0.044 gal per horsepower-hour) is the average diesel use from Iowa
-  State University's *Estimating Farm Machinery Costs* (Ag Decision Maker A3-29).
+- **Fuel use** (0.044 gal per horsepower-hour; 4.4 gal/hr for a 100 hp tractor) is
+  the average diesel use from Iowa State University's *Estimating Farm Machinery
+  Costs* (Ag Decision Maker A3-29).
 - **Lubrication** is its own input and is **not tied to the diesel price**. The
   $3.00/hr default is a placeholder; replace it with your own oil, filter and grease cost.
-- **Repairs & maintenance** (reported as wear and tear) use the 2WD tractor repair
-  factors from the American Society of Agricultural and Biological Engineers
-  standard D497 (RF1 = 0.007, RF2 = 2.0). Repairs grow with accumulated hours, so an
-  older, high-hour tractor costs more per hour to repair than a new one. The
-  formula costs this year's hours on top of the hours already on the tractor.
+- **Repairs & maintenance** use the 2WD tractor repair factors from the American
+  Society of Agricultural and Biological Engineers standard D497 (RF1 = 0.007,
+  RF2 = 2.0). Repairs grow with accumulated hours.
+- **Depreciation** uses the same standard's remaining-value curve, which depends
+  on size class: under 80 hp: 0.981, 0.093, 0.0058; 80–150 hp: 0.942, 0.100,
+  0.0008; over 150 hp: 0.976, 0.119, 0.0019. Value falls mainly with **age**, not
+  hours, so depreciation is steepest in the first year and acts more like a
+  monthly cost than an hourly one. The per-hour figure spreads this year's drop
+  over the hours used per year.
 - Factors live on the `Tractor_Factors` tab and can be edited. They were entered
-  from memory of the published sources and have not yet been checked against them.
+  from memory of the published sources and have **not yet been checked** against
+  them (the Iowa State site was not reachable from the build environment).
 - Defaults (100 hp, $3.00/hr lubrication, $120,000 list price, 3,000 hours on,
-  400 hours/yr) are placeholders; replace them with your own.
+  400 hours/yr, 5 years old) are placeholders; replace them with your own.
 
 ## Standalone workbooks
 
@@ -170,7 +179,7 @@ lookup those numbers came from:
 - `Calf Margin by County.xlsx` — the county → ERS region → margin lookup.
 - `HayPriceLookup.xlsx` — hay price by state.
 - `Livestock Fencing Cost Calculator.xlsx` — fencing build cost by type and length.
-- `Tractor Cost per Hour.xlsx` — 2WD tractor variable cost per hour by state; also covers the
+- `Tractor Cost per Hour.xlsx` — 2WD tractor cost per hour (variable + depreciation) by state; also covers the
   territories (PADD 6 and 7) with a manual diesel price.
 
 ## Rebuilding from source

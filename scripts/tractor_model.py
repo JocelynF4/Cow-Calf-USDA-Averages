@@ -32,12 +32,21 @@ DRIVE_TYPES = [
     ("2WD", 0.007, 2.0, 12000),
 ]
 
+# Remaining-value coefficients by tractor size (ASABE D497.7, table 6), used for
+# depreciation. Entered from memory of the standard; not yet checked against it.
+SIZE_CLASSES = [
+    # lower horsepower bound, label, C1, C2, C3
+    (0, "Small (under 80 hp)", 0.981, 0.093, 0.0058),
+    (80, "Medium (80-150 hp)", 0.942, 0.100, 0.0008),
+    (150, "Large (over 150 hp)", 0.976, 0.119, 0.0019),
+]
+
 # Diesel price basis -> column in Diesel_by_Region.
 BASES = [("5-year average", 3), ("52-week average", 4), ("Latest week", 2), ("2025 average", 5)]
 
 DEFAULTS = {
     "hp": 100, "list_price": 120000, "hours_on": 3000,
-    "hours_yr": 400, "lube": 3.00,
+    "hours_yr": 400, "lube": 3.00, "age": 5,
 }
 
 NAVY, BLUE, LIGHT, AMBER, GREY, GREEN = "1F3A5F", "2F5C8F", "DCE6F1", "FFF2CC", "F2F2F2", "E2EFDA"
@@ -111,15 +120,25 @@ def write_data_sheets(wb, states_to_include=None):
         for j, v in enumerate(row, start=1):
             tf.cell(i, j, v)
     drive_last = 1 + len(DRIVE_TYPES)
-    k = drive_last + 2
+    s0 = drive_last + 2
+    for j, h in enumerate(["Min Horsepower", "Size Class", "Value Coeff 1",
+                           "Value Coeff 2", "Value Coeff 3"], start=1):
+        tf.cell(s0, j, h)
+        _hdr(tf.cell(s0, j))
+    for i, row in enumerate(SIZE_CLASSES, start=s0 + 1):
+        for j, v in enumerate(row, start=1):
+            tf.cell(i, j, v)
+    size_first, size_last = s0 + 1, s0 + len(SIZE_CLASSES)
+    k = size_last + 2
     tf.cell(k, 1, "Fuel use (gal per hp-hour)")
     tf.cell(k, 2, FUEL_GAL_PER_HP_HR)
-    tf.cell(k + 2, 1, "Source: 2WD tractor repair factors from ASABE D497.7 (table 3); fuel use from "
-                      "Iowa State Ag Decision Maker A3-29. Estimated life is for reference "
-                      "only.").font = NOTE
+    tf.cell(k + 2, 1, "Source: 2WD tractor repair factors (table 3) and remaining-value coefficients "
+                      "(table 6) from ASABE D497.7; fuel use from Iowa State Ag Decision Maker "
+                      "A3-29. Entered from memory, not yet checked against the published "
+                      "tables. Estimated life is for reference only.").font = NOTE
     tf.column_dimensions["A"].width = 30
     tf.column_dimensions["B"].width = 20
-    for col in "CD":
+    for col in "CDE":
         tf.column_dimensions[col].width = 18
 
     tf.cell(1, 7, "Diesel Price Basis")
@@ -142,13 +161,18 @@ def write_data_sheets(wb, states_to_include=None):
         "rf1": "Tractor_Factors!$B$2",
         "rf2": "Tractor_Factors!$C$2",
         "fuel_k": f"Tractor_Factors!$B${k}",
+        "size_min": f"Tractor_Factors!$A${size_first}:$A${size_last}",
+        "size_lab": f"Tractor_Factors!$B${size_first}:$B${size_last}",
+        "c1": f"Tractor_Factors!$C${size_first}:$C${size_last}",
+        "c2": f"Tractor_Factors!$D${size_first}:$D${size_last}",
+        "c3": f"Tractor_Factors!$E${size_first}:$E${size_last}",
         "basis_key": f"Tractor_Factors!$G$2:$G${1 + len(BASES)}",
         "basis_col": f"Tractor_Factors!$H$2:$H${1 + len(BASES)}",
         "states": [s["state"] for s in sorted(states, key=lambda s: s["state"])],
     }
 
 
-def write_calculator(ws, top, state_cell, ref, title="  TRACTOR VARIABLE COST PER HOUR"):
+def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
     """Write the input + result block into ws starting at row `top` (columns B:D).
 
     `state_cell` is an absolute reference to the cell holding the full state name.
@@ -259,6 +283,30 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR VARIABLE COST PE
     hyr = field(r, "Hours used per year:", d["hours_yr"], "#,##0")
     r += 2
 
+    heading(r, "Depreciation")
+    r += 1
+    age = field(r, "Tractor age (years):", d["age"], "0")
+    r += 1
+    derived(r, "Size class:",
+            f'=IFERROR(INDEX({ref["size_lab"]},MATCH({hp},{ref["size_min"]},1)),"")')
+    r += 1
+
+    def size_k(rng):
+        return f'INDEX({ref[rng]},MATCH({hp},{ref["size_min"]},1))'
+
+    def value_at(age_expr):
+        return (f'{lp}*MAX(0,{size_k("c1")}-{size_k("c2")}*SQRT({age_expr})'
+                f'-{size_k("c3")}*SQRT({hyr}))^2')
+
+    v0 = derived(r, "Value at start of this year:", f'=IFERROR({value_at(age)},"")', '"$"#,##0')
+    r += 1
+    v1 = derived(r, "Value at end of this year:", f'=IFERROR({value_at(age + "+1")},"")',
+                 '"$"#,##0')
+    r += 1
+    deprec_yr = derived(r, "Depreciation this year:", f'=IFERROR({v0}-{v1},"")', '"$"#,##0',
+                        "falls mostly with age, not hours of use")
+    r += 2
+
     heading(r, "Variable costs (per hour)")
     r += 1
     fuel = out(r, "⛽  Fuel", f'=IFERROR({gal}*{price},"n/a")')
@@ -269,14 +317,27 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR VARIABLE COST PE
                  f'=IFERROR({lp}*{ref["rf1"]}*((({hon}+{hyr})/1000)^{ref["rf2"]}'
                  f'-({hon}/1000)^{ref["rf2"]})/{hyr},"n/a")')
     r += 1
-    total = out(r, "💰  Total variable cost per hour",
-                f'=IFERROR({fuel}+{lube}+{repair},"n/a")', strong=True)
+    var = out(r, "Variable cost subtotal", f'=IFERROR({fuel}+{lube}+{repair},"n/a")')
+    ws[f"B{r}"].font = Font(bold=True, size=11)
+    r += 2
+
+    heading(r, "Depreciation (per hour)")
     r += 1
-    out(r, "📅  Total variable cost per year", f'=IFERROR({total}*{hyr},"n/a")', '"$"#,##0" /yr"')
+    dep = out(r, "📉  Depreciation", f'=IFERROR({deprec_yr}/{hyr},"n/a")')
+    r += 2
+
+    out(r, "🔩  Wear & tear (repairs + depreciation)", f'=IFERROR({repair}+{dep},"n/a")',
+        strong=True)
+    r += 1
+    total = out(r, "💰  Total cost per hour (variable + depreciation)",
+                f'=IFERROR({var}+{dep},"n/a")', strong=True)
+    r += 1
+    out(r, "📅  Total cost per year", f'=IFERROR({total}*{hyr},"n/a")', '"$"#,##0" /yr"')
     r += 2
 
     notes = [
-        "2WD tractors only. Variable costs only — depreciation, interest, taxes, insurance, housing and labor are not included.",
+        "2WD tractors only. Includes variable costs and depreciation; interest, taxes, insurance, housing and labor are not included.",
+        "Depreciation = this year's drop in the remaining-value curve for the size class (ASABE D497), ÷ hours used per year.",
         "Fuel = 0.044 gal per hp-hour × horsepower × diesel price (Iowa State Ag Decision Maker A3-29).",
         "Lubrication is entered separately and is not tied to the diesel price.",
         "Repairs = this year's share of list price × repair factor 1 × (hours/1000)^repair factor 2 (ASABE D497).",
