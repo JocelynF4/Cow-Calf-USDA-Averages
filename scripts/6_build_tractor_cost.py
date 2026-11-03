@@ -16,7 +16,7 @@ ws.title = "Tractor Cost"
 ref = tm.write_data_sheets(wb)
 
 ws.sheet_view.showGridLines = False
-ws["B2"] = "Tractor Cost per Hour"
+ws["B2"] = "Tractor Variable Cost per Hour"
 ws["B2"].font = Font(bold=True, size=20, color=tm.NAVY)
 ws["B3"] = ("Pick a state to pull its regional diesel price, then describe the tractor. "
             "Amber cells are inputs.")
@@ -40,7 +40,7 @@ dv = DataValidation(type="list", formula1="FuelStates", allow_blank=True)
 ws.add_data_validation(dv)
 dv.add(ws["C6"])
 
-tm.write_calculator(ws, 8, "$C$6", ref, title="  2 · TRACTOR & COST PER HOUR")
+tm.write_calculator(ws, 8, "$C$6", ref, title="  2 · TRACTOR VARIABLE COST PER HOUR")
 
 ws.column_dimensions["A"].width = 2
 ws.column_dimensions["B"].width = 38

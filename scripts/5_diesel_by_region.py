@@ -1,7 +1,7 @@
 """Average the weekly on-highway diesel prices by fuel region and map every state to one.
 
 Input : Weekly_On-Highway_Diesel_Fuel_Prices_20261103.csv  (weekly $/gal by region)
-Output: data/diesel_by_region.csv   region -> latest week, 52-week average, 2025 average
+Output: data/diesel_by_region.csv   region -> latest week, 5-year, 52-week and 2025 averages
         data/state_diesel_region.csv state  -> fuel region (PADD) + which price series it uses
 """
 import csv
@@ -42,6 +42,7 @@ PADD_STATES = [
 ]
 
 WINDOW_WEEKS = 52
+FIVE_YEAR_WEEKS = 260
 CALENDAR_YEAR = 2025
 
 
@@ -63,11 +64,17 @@ def summarise(series):
         dates = sorted(pts)
         last = dates[-1]
         window = dates[-WINDOW_WEEKS:]
+        five = dates[-FIVE_YEAR_WEEKS:]
+        if len(five) < FIVE_YEAR_WEEKS:
+            raise SystemExit(f"{region}: only {len(five)} weeks, need {FIVE_YEAR_WEEKS} for 5 years")
         year = [d for d in dates if d.year == CALENDAR_YEAR]
         out.append({
             "region": region,
             "latest_week": last.isoformat(),
             "latest_price": round(pts[last], 3),
+            "avg_5yr": round(sum(pts[d] for d in five) / len(five), 3),
+            "avg_5yr_from": five[0].isoformat(),
+            "avg_5yr_weeks": len(five),
             "avg_52wk": round(sum(pts[d] for d in window) / len(window), 3),
             "avg_52wk_from": window[0].isoformat(),
             "avg_52wk_weeks": len(window),
@@ -96,7 +103,7 @@ def main():
                 w.writerow([st, padd, name, serie])
 
     for r in rows:
-        print(f"{r['region']:<28} latest {r['latest_price']:.3f}  "
+        print(f"{r['region']:<28} latest {r['latest_price']:.3f}  5yr {r['avg_5yr']:.3f}  "
               f"52wk {r['avg_52wk']:.3f}  {CALENDAR_YEAR} {r[f'avg_{CALENDAR_YEAR}']:.3f}")
     print("saved:", OUT_REGION, OUT_STATE)
 

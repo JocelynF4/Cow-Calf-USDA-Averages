@@ -9,8 +9,8 @@ datasets:
 - **Hay price** — average `$/ton` by state.
 - **Calf margin** — `$/cow` by the county's USDA ERS farm resource region.
 - **Fencing estimate** — build cost by fence type and length (acres, miles, or feet).
-- **Tractor cost per hour** — fuel, lubrication, repairs (wear and tear), depreciation,
-  interest and overheads per hour, using the state's regional diesel price.
+- **Tractor variable cost per hour** — fuel, lubrication and repairs (wear and tear)
+  per hour for a two-wheel-drive (2WD) tractor, using the state's regional diesel price.
 
 ## The combined tool: `Rancher_Lookup_Combined.xlsx`
 
@@ -18,8 +18,8 @@ Open the **Rancher Lookup** tab, pick a **state** and then a **county**, and the
 sheet fills in the auction cattle averages and hay price (by state) and the calf
 margin (by the county's ERS region). The **fencing estimator** is independent:
 choose a fence type and an amount in acres, miles, or feet to get a build cost.
-The **tractor cost per hour** section uses the chosen state's regional diesel price;
-fill in the tractor's horsepower, drive type, list price, hours and age.
+The **tractor variable cost per hour** section uses the chosen state's regional diesel
+price; fill in the tractor's horsepower, lubrication cost, list price and hours.
 
 Behind the scenes, one data tab holds each dataset (`Cattle_by_State`,
 `Hay_by_State`, `CalfMargin_by_Region`, `Fencing_Rates`) and a `Counties` tab
@@ -96,7 +96,7 @@ at a different level of detail. Here is exactly what happens to each one.
   (perimeter = 4 × √(acres × 43,560 sq ft)) — an estimate, since an acreage
   alone does not fix a field's shape. Feet and miles are exact.
 
-### 5. Tractor cost per hour — regional diesel price + a standard machinery-cost model
+### 5. Tractor variable cost per hour — regional diesel price + a standard repair model
 
 **Diesel price — simple weekly average, by fuel region**
 
@@ -121,44 +121,44 @@ at a different level of detail. Here is exactly what happens to each one.
   PADD 1 uses its three sub-district series rather than the blended East Coast
   figure, and California has its own series, so both are used for accuracy.
 - **The average:** a plain arithmetic mean of the weekly prices (each week weighted
-  equally). Three bases are kept and chosen from a dropdown: **52-week average**
-  (default; 10 Nov 2025 – 2 Nov 2026), **latest week** (2 Nov 2026), and the
-  **2025 calendar-year average** (to line up with the other 2025 datasets).
-  Prices rose sharply through 2026, so the latest week is well above the 52-week
-  average (e.g. U.S. $6.29 vs $4.93).
+  equally). Four bases are kept and chosen from a dropdown: **5-year average**
+  (default; the 260 weeks from 15 Nov 2021 to 2 Nov 2026), **52-week average**
+  (10 Nov 2025 – 2 Nov 2026), **latest week** (2 Nov 2026), and the **2025
+  calendar-year average** (to line up with the other 2025 datasets). Prices rose
+  sharply through 2026, so the latest week is well above the averages
+  (U.S.: latest $6.29, 52-week $4.93, 5-year $4.31).
 - **Caveats:** these are on-highway retail prices, which include road fuel taxes
   that off-road (dyed) farm diesel does not pay, so they overstate farm fuel cost.
   Enter your own price to override. Territories have no series and show `n/a`
   until a price is entered.
 
-**Cost per hour — the standard machinery-cost method**
+**Variable cost per hour — 2WD tractors only**
 
-Follows the American Society of Agricultural and Biological Engineers machinery-cost
-standard (ASABE D497 / EP496), the same method as Iowa State University's
-*Estimating Farm Machinery Costs* (Ag Decision Maker A3-29). Each year's cost is
-divided by hours used per year:
+Only **variable costs** are measured: costs that rise with every hour the tractor
+runs. Ownership costs (depreciation, interest, taxes, insurance and housing) and
+operator labor are **not included**. The model covers **two-wheel-drive (2WD)
+tractors only**.
 
 ```
-fuel            = 0.044 gal per hp-hour × max PTO hp × diesel price
-lubrication     = 15% of fuel cost
-repairs         = list price × RF1 × [((hours on + hours/yr)/1000)^RF2 − (hours on/1000)^RF2]
-remaining value = list price × (C1 − C2 × √age − C3 × √(hours/yr))²
-depreciation    = value at start of year − value at end of year
-interest        = average value this year × interest rate
-taxes, insurance & housing = average value this year × that percentage
+fuel        = 0.044 gal per hp-hour × max PTO hp × diesel price
+lubrication = entered directly in $/hr (oil, filters, grease)
+repairs     = list price × RF1 × [((hours on + hours/yr)/1000)^RF2 − (hours on/1000)^RF2] ÷ hours/yr
+total       = fuel + lubrication + repairs
 ```
 
-- **Wear and tear** is reported as repairs & maintenance + depreciation.
-- Repair factors (RF1, RF2) depend on drive type — 2WD: 0.007, 2.0;
-  4WD / track: 0.003, 2.0. Because repairs grow with accumulated hours, an older,
-  high-hour tractor costs more per hour to repair than a new one.
-- Remaining-value coefficients (C1, C2, C3) depend on size — under 80 hp:
-  0.981, 0.093, 0.0058; 80–150 hp: 0.942, 0.100, 0.0008; over 150 hp: 0.976,
-  0.119, 0.0019. Depreciation is steepest in the first year.
-- All factors live on the `Tractor_Factors` tab and can be edited. Defaults
-  (100 hp, 2WD, $120,000 list, 3,000 hours on, 400 hours/yr, 5 years old,
-  6% interest, 1% taxes/insurance/housing) are placeholders — replace with your own.
-- Operator labor is not included.
+- **Fuel use** (0.044 gal per horsepower-hour) is the average diesel use from Iowa
+  State University's *Estimating Farm Machinery Costs* (Ag Decision Maker A3-29).
+- **Lubrication** is its own input and is **not tied to the diesel price**. The
+  $3.00/hr default is a placeholder; replace it with your own oil, filter and grease cost.
+- **Repairs & maintenance** (reported as wear and tear) use the 2WD tractor repair
+  factors from the American Society of Agricultural and Biological Engineers
+  standard D497 (RF1 = 0.007, RF2 = 2.0). Repairs grow with accumulated hours, so an
+  older, high-hour tractor costs more per hour to repair than a new one. The
+  formula costs this year's hours on top of the hours already on the tractor.
+- Factors live on the `Tractor_Factors` tab and can be edited. They were entered
+  from memory of the published sources and have not yet been checked against them.
+- Defaults (100 hp, $3.00/hr lubrication, $120,000 list price, 3,000 hours on,
+  400 hours/yr) are placeholders; replace them with your own.
 
 ## Standalone workbooks
 
@@ -170,7 +170,7 @@ lookup those numbers came from:
 - `Calf Margin by County.xlsx` — the county → ERS region → margin lookup.
 - `HayPriceLookup.xlsx` — hay price by state.
 - `Livestock Fencing Cost Calculator.xlsx` — fencing build cost by type and length.
-- `Tractor Cost per Hour.xlsx` — tractor cost per hour by state; also covers the
+- `Tractor Cost per Hour.xlsx` — 2WD tractor variable cost per hour by state; also covers the
   territories (PADD 6 and 7) with a manual diesel price.
 
 ## Rebuilding from source
@@ -215,7 +215,7 @@ The raw inputs the tools were built from, kept for reference:
 - `data/combine_data.json` — hay price by state, fencing `$/foot` by type, calf
   margin by ERS region.
 - `data/averages_long.csv` — computed per-state per-category cattle averages.
-- `data/diesel_by_region.csv` — latest, 52-week and 2025 average diesel price per region.
+- `data/diesel_by_region.csv` — latest, 5-year, 52-week and 2025 average diesel price per region.
 - `data/state_diesel_region.csv` — state → PADD → diesel price series.
 - `scripts/tractor_model.py` — the shared tractor cost model used by both workbooks.
 - `data/cattle_2025.csv.gz` — filtered 2025 auction observation rows (the extract).
