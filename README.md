@@ -10,7 +10,7 @@ datasets:
 - **Calf margin** — `$/cow` by the county's USDA ERS farm resource region.
 - **Fencing estimate** — build cost by fence type and length (acres, miles, or feet).
 - **Tractor cost per hour** — fuel, repairs and depreciation per hour for
-  a two-wheel-drive (2WD) tractor, using the state's regional diesel price.
+  a two-wheel-drive (2WD) tractor, using the state's AAA 2026 average diesel price.
 
 ## The combined tool: `Rancher_Lookup_Combined.xlsx`
 
@@ -18,7 +18,7 @@ Open the **Rancher Lookup** tab, pick a **state** and then a **county**, and the
 sheet fills in the auction cattle averages and hay price (by state) and the calf
 margin (by the county's ERS region). The **fencing estimator** is independent:
 choose a fence type and an amount in acres, miles, or feet to get a build cost.
-The **tractor cost per hour** section uses the chosen state's regional diesel price;
+The **tractor cost per hour** section uses the chosen state's AAA 2026 average diesel price;
 fill in the tractor's horsepower, list price, hours and age.
 
 Behind the scenes, one data tab holds each dataset (`Cattle_by_State`,
@@ -96,41 +96,20 @@ at a different level of detail. Here is exactly what happens to each one.
   (perimeter = 4 × √(acres × 43,560 sq ft)) — an estimate, since an acreage
   alone does not fix a field's shape. Feet and miles are exact.
 
-### 5. Tractor cost per hour — regional diesel price + a standard machinery-cost model
+### 5. Tractor cost per hour — state diesel price + a standard machinery-cost model
 
-**Diesel price — simple weekly average, by fuel region**
+**Diesel price — AAA 2026 average, by state**
 
-- **Source:** `Weekly_On-Highway_Diesel_Fuel_Prices_20261103.csv` — weekly retail
-  on-highway diesel `$/gal` for the U.S. and each fuel region, Nov 2021 – 2 Nov 2026.
-- **State → region:** every state is assigned to its Petroleum Administration for
-  Defense District (PADD), and the matching price series is used:
-
-  | PADD | Region | States | Price series used |
-  |---|---|---|---|
-  | 1A | New England | CT, ME, MA, NH, RI, VT | New England |
-  | 1B | Central Atlantic | DE, DC, MD, NJ, NY, PA | Central Atlantic |
-  | 1C | Lower Atlantic | FL, GA, NC, SC, VA, WV | Lower Atlantic |
-  | 2 | Midwest | IL, IN, IA, KS, KY, MI, MN, MO, NE, ND, OH, OK, SD, TN, WI | Midwest |
-  | 3 | Gulf Coast | AL, AR, LA, MS, NM, TX | Gulf Coast |
-  | 4 | Rocky Mountain | CO, ID, MT, UT, WY | Rocky Mountains |
-  | 5 | West Coast | CA | California |
-  | 5 | West Coast | AK, AZ, HI, NV, OR, WA | West Coast exc California |
-  | 6 | Caribbean territories | Puerto Rico, U.S. Virgin Islands | none published |
-  | 7 | Pacific territories | Guam, American Samoa, Northern Mariana Islands | none published |
-
-  PADD 1 uses its three sub-district series rather than the blended East Coast
-  figure, and California has its own series, so both are used for accuracy.
-- **The average:** a plain arithmetic mean of the weekly prices (each week weighted
-  equally). Four bases are kept and chosen from a dropdown: **5-year average**
-  (default; the 260 weeks from 15 Nov 2021 to 2 Nov 2026), **52-week average**
-  (10 Nov 2025 – 2 Nov 2026), **latest week** (2 Nov 2026), and the **2025
-  calendar-year average** (to line up with the other 2025 datasets). Prices rose
-  sharply through 2026, so the latest week is well above the averages
-  (U.S.: latest $6.29, 52-week $4.93, 5-year $4.31).
-- **Caveats:** these are on-highway retail prices, which include road fuel taxes
+- **Source:** `AAA_State_Diesel_2026.csv` — the 2026 average on-road diesel price
+  (`$/gal`) for each of the 50 states and the District of Columbia, from AAA's state
+  gas price averages (https://gasprices.aaa.com/state-gas-price-averages/). The
+  figures were compiled from AAA and supplied as a spreadsheet; they could not be
+  re-checked against the AAA page from the build environment.
+- **What the tool does:** **no averaging or regional mapping** — each state uses
+  its own AAA figure directly.
+- **Caveats:** these are on-road retail prices, which include road fuel taxes
   that off-road (dyed) farm diesel does not pay, so they overstate farm fuel cost.
-  Enter your own price to override. Territories have no series and show `n/a`
-  until a price is entered.
+  Enter your own price to override. U.S. territories are not covered.
 
 **Cost per hour — 2WD tractors, variable costs + depreciation**
 
@@ -178,8 +157,8 @@ lookup those numbers came from:
 - `Calf Margin by County.xlsx` — the county → ERS region → margin lookup.
 - `HayPriceLookup.xlsx` — hay price by state.
 - `Livestock Fencing Cost Calculator.xlsx` — fencing build cost by type and length.
-- `Tractor Cost per Hour.xlsx` — 2WD tractor cost per hour (variable + depreciation) by state; also covers the
-  territories (PADD 6 and 7) with a manual diesel price.
+- `Tractor Cost per Hour.xlsx` — 2WD tractor cost per hour (variable + depreciation) by state,
+  using the AAA 2026 state diesel average.
 
 ## Rebuilding from source
 
@@ -191,7 +170,7 @@ files with no network access:
 ```bash
 python scripts/2_compute.py            # cattle averages     -> data/averages_long.csv
 python scripts/3_build_xlsx.py         # cattle workbook     -> USDA_Cattle_2025_State_Averages.xlsx
-python scripts/5_diesel_by_region.py   # diesel averages     -> data/diesel_by_region.csv
+python scripts/5_diesel_by_state.py    # diesel by state     -> data/diesel_by_state.csv
 python scripts/4_build_combined.py     # combined tool       -> Rancher_Lookup_Combined.xlsx
 python scripts/6_build_tractor_cost.py # tractor workbook    -> Tractor Cost per Hour.xlsx
 ```
@@ -210,7 +189,7 @@ python scripts/1_extract.py            # pull + filter weekly rows -> data/cattl
 The raw inputs the tools were built from, kept for reference:
 
 - `Hay prices state June-Sept.csv` — USDA NASS hay price survey rows.
-- `Weekly_On-Highway_Diesel_Fuel_Prices_20261103.csv` — weekly on-highway diesel prices by fuel region.
+- `AAA_State_Diesel_2026.csv` — AAA 2026 average diesel price by state.
 - `livestock_fencing_costs.csv` — itemized fencing costs by fence type.
 - `uscounties.xlsx` — county reference (name, FIPS, state).
 - `ers_farm_resource_regions_county_crosswalk.xls` — county → USDA ERS region crosswalk.
@@ -223,8 +202,7 @@ The raw inputs the tools were built from, kept for reference:
 - `data/combine_data.json` — hay price by state, fencing `$/foot` by type, calf
   margin by ERS region.
 - `data/averages_long.csv` — computed per-state per-category cattle averages.
-- `data/diesel_by_region.csv` — latest, 5-year, 52-week and 2025 average diesel price per region.
-- `data/state_diesel_region.csv` — state → PADD → diesel price series.
+- `data/diesel_by_state.csv` — AAA 2026 average diesel price per state.
 - `scripts/tractor_model.py` — the shared tractor cost model used by both workbooks.
 - `data/cattle_2025.csv.gz` — filtered 2025 auction observation rows (the extract).
 - `data/report_inventory.json` — discovered USDA reports and category combinations.

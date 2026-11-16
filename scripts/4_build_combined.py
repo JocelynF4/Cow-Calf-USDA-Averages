@@ -160,7 +160,7 @@ lk["B2"] = "Rancher County Lookup"
 lk["B2"].font = Font(bold=True, size=20, color=NAVY)
 lk["B3"] = ("Pick a state, then a county. Auction cattle prices and hay are by state; "
             "calf margin is by the county's ERS region. Fencing is estimated separately below, "
-            "and tractor cost per hour uses the state's regional diesel price.")
+            "and tractor cost per hour uses the state's AAA 2026 average diesel price.")
 lk["B3"].font = SUB
 lk.merge_cells("B3:F3")
 

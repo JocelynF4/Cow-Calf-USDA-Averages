@@ -7,7 +7,7 @@ housing and labor are left out.
 
   fuel (gal/hr)          = 0.044 x max PTO horsepower      (average diesel use;
                            Iowa State Ag Decision Maker A3-29)
-  fuel cost              = gal/hr x regional diesel price
+  fuel cost              = gal/hr x the state's AAA 2026 average diesel price
   repairs & maintenance  = list price x RF1 x (hours/1000)^RF2   (ASABE D497; accumulated,
                            so this year's cost is the change across this year's hours)
 
@@ -40,9 +40,6 @@ SIZE_CLASSES = [
     (150, "Large (over 150 hp)", 0.976, 0.119, 0.0019),
 ]
 
-# Diesel price basis -> column in Diesel_by_Region.
-BASES = [("5-year average", 3), ("52-week average", 4), ("Latest week", 2), ("2025 average", 5)]
-
 DEFAULTS = {
     "hp": 100, "list_price": 120000, "hours_on": 0,
     "hours_yr": 400, "age": 0,
@@ -60,11 +57,9 @@ MONEY_HR = '"$"#,##0.00" /hr"'
 
 
 def load_diesel():
-    with open(os.path.join(ROOT, "data", "diesel_by_region.csv")) as fh:
-        regions = list(csv.DictReader(fh))
-    with open(os.path.join(ROOT, "data", "state_diesel_region.csv")) as fh:
-        states = list(csv.DictReader(fh))
-    return regions, states
+    """State -> AAA 2026 average diesel price ($/gal), from data/diesel_by_state.csv."""
+    with open(os.path.join(ROOT, "data", "diesel_by_state.csv")) as fh:
+        return [(r["state"], float(r["diesel_2026_avg"])) for r in csv.DictReader(fh)]
 
 
 def _hdr(cell):
@@ -73,42 +68,24 @@ def _hdr(cell):
 
 
 def write_data_sheets(wb, states_to_include=None):
-    """Add Diesel_by_Region, State_Fuel_Region and Tractor_Factors; return lookup ranges."""
-    regions, states = load_diesel()
+    """Add Diesel_by_State and Tractor_Factors; return lookup ranges."""
+    states = sorted(load_diesel())
     if states_to_include is not None:
         keep = set(states_to_include)
-        states = [s for s in states if s["state"] in keep]
+        states = [s for s in states if s[0] in keep]
 
-    dr = wb.create_sheet("Diesel_by_Region")
-    heads = ["Price Series", "Latest Week ($/gal)", "5-Year Avg ($/gal)", "52-Week Avg ($/gal)",
-             "2025 Avg ($/gal)", "Latest Week Date", "5-Year Window Starts",
-             "52-Week Window Starts"]
-    for j, h in enumerate(heads, start=1):
-        dr.cell(1, j, h)
-        _hdr(dr.cell(1, j))
-    for i, r in enumerate(regions, start=2):
-        vals = [r["region"], float(r["latest_price"]), float(r["avg_5yr"]), float(r["avg_52wk"]),
-                float(r["avg_2025"]), r["latest_week"], r["avg_5yr_from"], r["avg_52wk_from"]]
-        for j, v in enumerate(vals, start=1):
-            c = dr.cell(i, j, v)
-            if 2 <= j <= 5:
-                c.number_format = '"$"0.000'
-    dr_last = 1 + len(regions)
-    for col, w in zip("ABCDEFGH", (28, 16, 16, 16, 16, 16, 18, 18)):
-        dr.column_dimensions[col].width = w
-
-    sf = wb.create_sheet("State_Fuel_Region")
-    for j, h in enumerate(["State", "PADD", "Fuel Region", "Price Series Used"], start=1):
-        sf.cell(1, j, h)
-        _hdr(sf.cell(1, j))
-    for i, r in enumerate(sorted(states, key=lambda s: s["state"]), start=2):
-        sf.cell(i, 1, r["state"])
-        sf.cell(i, 2, r["padd"])
-        sf.cell(i, 3, r["padd_name"])
-        sf.cell(i, 4, r["price_series"] or "none published")
-    sf_last = 1 + len(states)
-    for col, w in zip("ABCD", (26, 10, 22, 28)):
-        sf.column_dimensions[col].width = w
+    ds = wb.create_sheet("Diesel_by_State")
+    for j, h in enumerate(["State", "Diesel 2026 Avg ($/gal)"], start=1):
+        ds.cell(1, j, h)
+        _hdr(ds.cell(1, j))
+    for i, (st, price) in enumerate(states, start=2):
+        ds.cell(i, 1, st)
+        ds.cell(i, 2, price).number_format = '"$"0.000'
+    ds_last = 1 + len(states)
+    ds.cell(ds_last + 2, 1, "Source: AAA state diesel price averages for 2026 "
+                            "(gasprices.aaa.com/state-gas-price-averages).").font = NOTE
+    ds.column_dimensions["A"].width = 24
+    ds.column_dimensions["B"].width = 24
 
     tf = wb.create_sheet("Tractor_Factors")
     for j, h in enumerate(["Drive Type", "Repair Factor 1", "Repair Factor 2",
@@ -140,23 +117,10 @@ def write_data_sheets(wb, states_to_include=None):
     for col in "CDE":
         tf.column_dimensions[col].width = 18
 
-    tf.cell(1, 7, "Diesel Price Basis")
-    tf.cell(1, 8, "Column")
-    _hdr(tf.cell(1, 7))
-    _hdr(tf.cell(1, 8))
-    for i, (lab, col) in enumerate(BASES, start=2):
-        tf.cell(i, 7, lab)
-        tf.cell(i, 8, col)
-    tf.column_dimensions["G"].width = 20
-    wb.defined_names.add(DefinedName("DieselBasis", attr_text=f"Tractor_Factors!$G$2:$G${1 + len(BASES)}"))
 
     return {
-        "dr": f"Diesel_by_Region!$A$2:$H${dr_last}",
-        "dr_key": f"Diesel_by_Region!$A$2:$A${dr_last}",
-        "sf_key": f"State_Fuel_Region!$A$2:$A${sf_last}",
-        "sf_padd": f"State_Fuel_Region!$B$2:$B${sf_last}",
-        "sf_name": f"State_Fuel_Region!$C$2:$C${sf_last}",
-        "sf_series": f"State_Fuel_Region!$D$2:$D${sf_last}",
+        "ds_key": f"Diesel_by_State!$A$2:$A${ds_last}",
+        "ds_price": f"Diesel_by_State!$B$2:$B${ds_last}",
         "rf1": "Tractor_Factors!$B$2",
         "rf2": "Tractor_Factors!$C$2",
         "fuel_k": f"Tractor_Factors!$B${k}",
@@ -165,9 +129,7 @@ def write_data_sheets(wb, states_to_include=None):
         "c1": f"Tractor_Factors!$C${size_first}:$C${size_last}",
         "c2": f"Tractor_Factors!$D${size_first}:$D${size_last}",
         "c3": f"Tractor_Factors!$E${size_first}:$E${size_last}",
-        "basis_key": f"Tractor_Factors!$G$2:$G${1 + len(BASES)}",
-        "basis_col": f"Tractor_Factors!$H$2:$H${1 + len(BASES)}",
-        "states": [s["state"] for s in sorted(states, key=lambda s: s["state"])],
+        "states": [s[0] for s in states],
     }
 
 
@@ -237,26 +199,15 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
 
     heading(r, "Fuel")
     r += 1
-    derived(r, "Fuel region:",
-            f'=IF({st}="","",IFERROR(INDEX({ref["sf_padd"]},MATCH({st},{ref["sf_key"]},0))'
-            f'&" · "&INDEX({ref["sf_name"]},MATCH({st},{ref["sf_key"]},0)),"n/a"))')
-    r += 1
-    ser = derived(r, "Diesel price series:",
-                  f'=IF({st}="","",IFERROR(INDEX({ref["sf_series"]},MATCH({st},{ref["sf_key"]},0)),"n/a"))')
-    r += 1
-    basis = field(r, "Diesel price basis:", BASES[0][0])
-    dropdown(basis, "DieselBasis")
-    r += 1
-    regional = derived(
-        r, "Regional diesel price:",
-        f'=IFERROR(INDEX({ref["dr"]},MATCH({ser},{ref["dr_key"]},0),'
-        f'INDEX({ref["basis_col"]},MATCH({basis},{ref["basis_key"]},0))),"n/a")',
-        '"$"0.000" /gal"', "on-highway retail price, includes road taxes")
+    state_price = derived(
+        r, "State diesel price (AAA 2026 avg):",
+        f'=IF({st}="","",IFERROR(INDEX({ref["ds_price"]},MATCH({st},{ref["ds_key"]},0)),"n/a"))',
+        '"$"0.000" /gal"', "on-road retail price, includes road taxes")
     r += 1
     own = field(r, "Your own diesel price (optional):", None, '"$"0.000" /gal"',
-                "leave blank to use the regional price")
+                "leave blank to use the state price")
     r += 1
-    price = derived(r, "Diesel price used:", f'=IF(ISNUMBER({own}),{own},{regional})',
+    price = derived(r, "Diesel price used:", f'=IF(ISNUMBER({own}),{own},{state_price})',
                     '"$"0.000" /gal"')
     r += 1
     hp = field(r, "Max PTO horsepower:", d["hp"], "0")
@@ -331,8 +282,8 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
         "Depreciation = this year's drop in the remaining-value curve for the size class (ASABE D497), ÷ hours used per year.",
         "Fuel = 0.044 gal per hp-hour × horsepower × diesel price (Iowa State Ag Decision Maker A3-29).",
         "Repairs = this year's share of list price × repair factor 1 × (hours/1000)^repair factor 2 (ASABE D497).",
-        "Diesel is on-highway retail and includes road taxes; off-road farm diesel is usually cheaper — "
-        "enter your own price to use it. Territories have no regional series.",
+        "Diesel = AAA 2026 state average (on-road retail, includes road taxes); off-road farm diesel is "
+        "usually cheaper — enter your own price to use it.",
     ]
     for line in notes:
         ws[f"B{r}"].value, ws[f"B{r}"].font = line, NOTE

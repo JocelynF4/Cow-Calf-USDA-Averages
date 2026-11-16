@@ -18,7 +18,7 @@ ref = tm.write_data_sheets(wb)
 ws.sheet_view.showGridLines = False
 ws["B2"] = "Tractor Cost per Hour"
 ws["B2"].font = Font(bold=True, size=20, color=tm.NAVY)
-ws["B3"] = ("Pick a state to pull its regional diesel price, then describe the tractor. "
+ws["B3"] = ("Pick a state to pull its AAA 2026 average diesel price, then describe the tractor. "
             "Amber cells are inputs.")
 ws["B3"].font = Font(italic=True, size=10, color="595959")
 ws.merge_cells("B3:F3")
@@ -35,7 +35,7 @@ s.value = "Iowa"
 s.fill = PatternFill("solid", fgColor=tm.AMBER)
 s.alignment, s.border, s.font = tm.LEFT, tm.BORDER, Font(bold=True, size=11)
 
-wb.defined_names.add(DefinedName("FuelStates", attr_text=ref["sf_key"]))
+wb.defined_names.add(DefinedName("FuelStates", attr_text=ref["ds_key"]))
 dv = DataValidation(type="list", formula1="FuelStates", allow_blank=True)
 ws.add_data_validation(dv)
 dv.add(ws["C6"])
