@@ -163,8 +163,10 @@ total           = fuel + repairs + depreciation
 - Factors live on the `Tractor_Factors` tab and can be edited. They were entered
   from memory of the published sources and have **not yet been checked** against
   them (the Iowa State site was not reachable from the build environment).
-- Defaults (100 hp, $120,000 list price, 3,000 hours on,
-  400 hours/yr, 5 years old) are placeholders; replace them with your own.
+- Defaults describe a **new, just-purchased tractor**: 100 hp, 0 hours on, 0 years
+  old, 400 hours/yr. The $120,000 list price is an unsourced placeholder; replace it
+  with a real list price or dealer quote. Because the tractor is new, the figures
+  are its **first year**: depreciation is at its steepest and repairs are near zero.
 
 ## Standalone workbooks
 

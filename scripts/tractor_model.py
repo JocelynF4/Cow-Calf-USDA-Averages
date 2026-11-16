@@ -44,8 +44,8 @@ SIZE_CLASSES = [
 BASES = [("5-year average", 3), ("52-week average", 4), ("Latest week", 2), ("2025 average", 5)]
 
 DEFAULTS = {
-    "hp": 100, "list_price": 120000, "hours_on": 3000,
-    "hours_yr": 400, "age": 5,
+    "hp": 100, "list_price": 120000, "hours_on": 0,
+    "hours_yr": 400, "age": 0,
 }
 
 NAVY, BLUE, LIGHT, AMBER, GREY, GREEN = "1F3A5F", "2F5C8F", "DCE6F1", "FFF2CC", "F2F2F2", "E2EFDA"
