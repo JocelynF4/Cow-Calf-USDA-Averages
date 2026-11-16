@@ -9,7 +9,7 @@ datasets:
 - **Hay price** — average `$/ton` by state.
 - **Calf margin** — `$/cow` by the county's USDA ERS farm resource region.
 - **Fencing estimate** — build cost by fence type and length (acres, miles, or feet).
-- **Tractor cost per hour** — fuel, lubrication, repairs and depreciation per hour for
+- **Tractor cost per hour** — fuel, repairs and depreciation per hour for
   a two-wheel-drive (2WD) tractor, using the state's regional diesel price.
 
 ## The combined tool: `Rancher_Lookup_Combined.xlsx`
@@ -19,7 +19,7 @@ sheet fills in the auction cattle averages and hay price (by state) and the calf
 margin (by the county's ERS region). The **fencing estimator** is independent:
 choose a fence type and an amount in acres, miles, or feet to get a build cost.
 The **tractor cost per hour** section uses the chosen state's regional diesel price;
-fill in the tractor's horsepower, lubrication cost, list price, hours and age.
+fill in the tractor's horsepower, list price, hours and age.
 
 Behind the scenes, one data tab holds each dataset (`Cattle_by_State`,
 `Hay_by_State`, `CalfMargin_by_Region`, `Fencing_Rates`) and a `Counties` tab
@@ -136,24 +136,21 @@ at a different level of detail. Here is exactly what happens to each one.
 
 The model covers **two-wheel-drive (2WD) tractors only**. It reports **variable
 costs** (costs that rise with every hour the tractor runs) and **depreciation**
-as separate subtotals. Interest, taxes, insurance, housing and operator labor
+as separate subtotals. Lubrication, interest, taxes, insurance, housing and operator labor
 are **not included**.
 
 ```
 fuel            = 0.044 gal per hp-hour × max PTO hp × diesel price
-lubrication     = entered directly in $/hr (oil, filters, grease)
 repairs         = list price × RF1 × [((hours on + hours/yr)/1000)^RF2 − (hours on/1000)^RF2] ÷ hours/yr
 remaining value = list price × (C1 − C2 × √age − C3 × √(hours/yr))²
 depreciation    = (value at start of year − value at end of year) ÷ hours/yr
 wear & tear     = repairs + depreciation
-total           = fuel + lubrication + repairs + depreciation
+total           = fuel + repairs + depreciation
 ```
 
 - **Fuel use** (0.044 gal per horsepower-hour; 4.4 gal/hr for a 100 hp tractor) is
   the average diesel use from Iowa State University's *Estimating Farm Machinery
   Costs* (Ag Decision Maker A3-29).
-- **Lubrication** is its own input and is **not tied to the diesel price**. The
-  $3.00/hr default is a placeholder; replace it with your own oil, filter and grease cost.
 - **Repairs & maintenance** use the 2WD tractor repair factors from the American
   Society of Agricultural and Biological Engineers standard D497 (RF1 = 0.007,
   RF2 = 2.0). Repairs grow with accumulated hours.
@@ -166,7 +163,7 @@ total           = fuel + lubrication + repairs + depreciation
 - Factors live on the `Tractor_Factors` tab and can be edited. They were entered
   from memory of the published sources and have **not yet been checked** against
   them (the Iowa State site was not reachable from the build environment).
-- Defaults (100 hp, $3.00/hr lubrication, $120,000 list price, 3,000 hours on,
+- Defaults (100 hp, $120,000 list price, 3,000 hours on,
   400 hours/yr, 5 years old) are placeholders; replace them with your own.
 
 ## Standalone workbooks

@@ -2,13 +2,12 @@
 and the combined tool.
 
 Only variable costs are measured — costs that rise with each hour the tractor runs.
-Ownership costs (depreciation, interest, taxes, insurance, housing) are left out.
+Depreciation is added as its own line. Lubrication, interest, taxes, insurance,
+housing and labor are left out.
 
   fuel (gal/hr)          = 0.044 x max PTO horsepower      (average diesel use;
                            Iowa State Ag Decision Maker A3-29)
   fuel cost              = gal/hr x regional diesel price
-  lubrication            = entered separately in $/hr (oil, filters, grease) — not
-                           tied to the diesel price
   repairs & maintenance  = list price x RF1 x (hours/1000)^RF2   (ASABE D497; accumulated,
                            so this year's cost is the change across this year's hours)
 
@@ -46,7 +45,7 @@ BASES = [("5-year average", 3), ("52-week average", 4), ("Latest week", 2), ("20
 
 DEFAULTS = {
     "hp": 100, "list_price": 120000, "hours_on": 3000,
-    "hours_yr": 400, "lube": 3.00, "age": 5,
+    "hours_yr": 400, "age": 5,
 }
 
 NAVY, BLUE, LIGHT, AMBER, GREY, GREEN = "1F3A5F", "2F5C8F", "DCE6F1", "FFF2CC", "F2F2F2", "E2EFDA"
@@ -265,12 +264,6 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
     gal = derived(r, "Fuel use:", f'=IFERROR({ref["fuel_k"]}*{hp},"")', '0.0" gal/hr"')
     r += 2
 
-    heading(r, "Lubrication")
-    r += 1
-    lube_in = field(r, "Lubrication cost ($/hr):", d["lube"], '"$"#,##0.00',
-                    "oil, filters & grease per running hour — enter your own")
-    r += 2
-
     heading(r, "Repairs & maintenance")
     r += 1
     derived(r, "Drive type:", "2WD", note="model covers 2WD tractors only")
@@ -311,13 +304,11 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
     r += 1
     fuel = out(r, "⛽  Fuel", f'=IFERROR({gal}*{price},"n/a")')
     r += 1
-    lube = out(r, "🛢️  Lubrication", f'=IF(ISNUMBER({lube_in}),{lube_in},"n/a")')
-    r += 1
     repair = out(r, "🔧  Repairs & maintenance (wear & tear)",
                  f'=IFERROR({lp}*{ref["rf1"]}*((({hon}+{hyr})/1000)^{ref["rf2"]}'
                  f'-({hon}/1000)^{ref["rf2"]})/{hyr},"n/a")')
     r += 1
-    var = out(r, "Variable cost subtotal", f'=IFERROR({fuel}+{lube}+{repair},"n/a")')
+    var = out(r, "Variable cost subtotal", f'=IFERROR({fuel}+{repair},"n/a")')
     ws[f"B{r}"].font = Font(bold=True, size=11)
     r += 2
 
@@ -336,10 +327,9 @@ def write_calculator(ws, top, state_cell, ref, title="  TRACTOR COST PER HOUR"):
     r += 2
 
     notes = [
-        "2WD tractors only. Includes variable costs and depreciation; interest, taxes, insurance, housing and labor are not included.",
+        "2WD tractors only. Includes fuel, repairs and depreciation; lubrication, interest, taxes, insurance, housing and labor are not included.",
         "Depreciation = this year's drop in the remaining-value curve for the size class (ASABE D497), ÷ hours used per year.",
         "Fuel = 0.044 gal per hp-hour × horsepower × diesel price (Iowa State Ag Decision Maker A3-29).",
-        "Lubrication is entered separately and is not tied to the diesel price.",
         "Repairs = this year's share of list price × repair factor 1 × (hours/1000)^repair factor 2 (ASABE D497).",
         "Diesel is on-highway retail and includes road taxes; off-road farm diesel is usually cheaper — "
         "enter your own price to use it. Territories have no regional series.",
